@@ -2,7 +2,6 @@
 
 Antes de iniciar os estudos práticos em engenharia de dados, como a democratização de dados com AWS Glue e Spark, é fundamental compreender os conceitos essenciais da área. Esta seção apresentará os fundamentos necessários para uma base sólida no tema.
 
-
 ## 1. O que é Big Data?
 
 De acordo com o site da Oracle, Big Data é um conjunto de dados muito grandes, com uma variedade de tipos e fontes. Até o momento de escrita desse repositório, os princípios do Big Data são baseados em 5 V's:
@@ -41,7 +40,7 @@ Exemplos:
 [O que são dados transacionais?](https://www.tibco.com/pt-br/reference-center/what-is-transactional-data)<br>
 [Qual é a diferença entre OLAP e OLTP?](https://aws.amazon.com/pt/compare/the-difference-between-olap-and-oltp/)
 
-## 3. Dados informacionais
+## 4. Dados informacionais
 Dados informacionais possuem o objetivo de atender a necessidade da tomada de decisão e para isso se baseia em grandes volumes de dados da base transacional.
 
 Nesse caso, o histórico é essencial e necessita de muita armazenagem. E essas características são denonimadas ao sistema OLAP (Processamento Analítico Online). O objetivo principal do processamento analítico on-line (OLAP) é analisar dados agregados.
@@ -55,7 +54,7 @@ Exemplos:
 [Modelagem de Dados](https://www.portalgsti.com.br/2017/02/modelagem-de-dados-o-que-e-e-para-que-serve-para-um-dba.html)<br>
 [Qual é a diferença entre OLAP e OLTP?](https://aws.amazon.com/pt/compare/the-difference-between-olap-and-oltp/)
 
-## 4. Ingestão de dados
+## 5. Ingestão de dados
 A ingestão de dados é o processo de extrair dados de uma variedade de fontes e transferi-los para um local de destino onde podem ser depositados e analisados.
 
 A extração pode ser feita de planilhas, webscrapping, aplicativos internos etc. Os destinos podem ser banco de dados, data warehouses etc.
@@ -65,27 +64,27 @@ A ingestão pode ser feita de duas maneiras, sendo elas:
 - **Ingestão em tempo real (streaming):** útil quando os dados são sensíveis ao tempo. Os dados são extraídos, processados ​​e armazenados assim que são gerados para a tomada de decisões em tempo real. Por exemplo, os dados adquiridos do app do Itaú deve ser monitorado continuamente para garantir a disponibilidade para o usuário.
 - **Ingestão em lote (batch):** os dados são movidos em intervalos agendado de forma recorrente. É utilizado para processos repetíveis. Por exemplo, relatórios que precisam ser gerados todos os dias.
 
-## 5. Processamento de Dados
+## 6. Processamento de Dados
 Processamento de dados é um conjunto de atividades que visam organizar informações. Neste tópico, será abordado ETL e ELT.
 
-### 5.1 Processo ETL
+### 6.1 Processo ETL
 1. Extração dos dados brutos de várias fontes;
 2. Transformação dos dados;
 3. Carregamento desses dados em um banco de dados de destino.
 
-### 5.2 Processo ELT
+### 6.2 Processo ELT
 1. Extração dos dados brutos de várias fontes;
 2. Carregamento dos dados em eu estado natural em um data warehouse ou data lake;
 3. Transformação dos dados conforme necessário enquanto está no sistema de destino.
 
 Com o ELT, toda a limpeza, transformação e enriquecimento de dados ocorrem dentro do data warehouse. Você pode interagir e transformar os dados brutos quantas vezes forem necessárias.
 
-### 5.3 História do ETL e ELT
+### 6.3 História do ETL e ELT
 O ETL existe desde a década de 1970, tornando-se especialmente popular com o surgimento dos data warehouses. No entanto, **os data warehouses tradicionais exigiam processos ETL personalizados para cada fonte de dados.**
 
 A evolução das tecnologias de nuvem mudou o que era possível. Agora, **as empresas podiam armazenar dados brutos ilimitados em grande escala e analisá-los posteriormente, conforme necessário.** O ELT se tornou o método moderno de integração de dados para análises eficientes.
 
-### 5.4 Principais diferenças
+### 6.4 Principais diferenças
 
 <table>
     <thead>
@@ -119,14 +118,61 @@ A evolução das tecnologias de nuvem mudou o que era possível. Agora, **as emp
     </tbody>
 </table>
 
-### 5.5 Quando usar
+### 6.5 Quando usar
 Após vermos todas as vantagens, o ETL só teria necessidade em bancos de dados antigos. Fora isso, o ELT é mais recomendado.
 
 <b>Referências</b>
 
 [Qual é a diferença entre ETL e ELT?](https://aws.amazon.com/pt/compare/the-difference-between-etl-and-elt/)
 
-## 6. Hadoop
+
+## 7. Camadas de dados
+
+As camadas SOR (System of Record), SOT (System of Transformation) e SPEC (Specialized Processing Engines) gerenciam diferentes estágios do ciclo de vida dos dados, desde o armazenamento bruto até a transformação e o processamento especializado. Abaixo breve descrição das camadas:
+
+- **Camada SOR (System of Record):** Responsável pelo armazenamento inicial dos dados brutos, funcionando como a principal referência para informações ainda não processadas;
+- **Camada SOT (System of Transformation):** Destinada à transformação, limpeza e preparação dos dados para análise. Nessa etapa, são aplicadas regras de negócios e ajustes necessários para garantir a qualidade das informações;
+- **Camada SPEC (Specialized Processing Engines):** Focada em processamentos avançados ou especializados, como execução de algoritmos de machine learning, geração de novas features a partir dos dados e transformações específicas para aprofundar as análises e gerar insights.
+
+**Desenho de camadas de dados, processamento e ingestão**
+
+<figure markdown="span">
+  ![Camadas de Dados](./assets/00-camadas-de-dados.png){ width="800" }
+</figure>
+
+<b>Referências</b>
+
+[Como o Itaú reduziu custos de armazenamento no Amazon S3](https://aws.amazon.com/pt/blogs/aws-brasil/como-o-itau-reduziu-custos-de-armazenamento-no-amazon-s3/)
+
+## 8. Tipos de dados
+
+Existem 3 tipos de dados, sendo:
+
+- **Dados Estruturados:** São dados organizados em tabelas, como em bancos de dados. Cada dado tem um formato específico, como números ou textos, o que facilita armazenar e acessar.
+- **Dados Semi-Estruturados:** São dados que têm alguma organização, mas não tão rígida como em tabelas. Exemplos são arquivos JSON e XML, que têm uma estrutura, mas não são fixos como os dados estruturados.
+- **Dados Não Estruturados:** São dados sem um formato organizado, como fotos, vídeos, e-mails e postagens em redes sociais. Eles são mais difíceis de analisar sem ferramentas específicas.
+
+## 9. Formatos de dados
+
+Os formatos mais utilizados no cenário de democratização de dados são:
+
+| **Formato** | **Tipo de Armazenamento**   | **Estrutura**           | **Principais Vantagens**                                      | **Exemplos de Uso**                                |
+|-------------|-----------------------------|-------------------------|-------------------------------------------------------------|----------------------------------------------------|
+| **LZO**     | Compressão de dados         | Não estruturado         | Compressão rápida e eficiente para grandes volumes de dados.  | Compressão de logs e grandes datasets em Hadoop.    |
+| **Parquet** | Armazenamento colunar       | Estruturado (colunas)    | Leitura rápida de grandes volumes de dados, ótimo para consultas de colunas específicas. | Armazenamento de dados em data lakes, Big Data.     |
+| **ORC**     | Armazenamento colunar       | Estruturado (colunas)    | Alta compressão e performance para leitura e processamento.   | Armazenamento de grandes logs, análise de dados no Hive. |
+| **Avro**    | Serialização de dados       | Estruturado (linha)      | Compacto, eficiente para transmissão de dados em sistemas distribuídos. | Arquivos de eventos e streaming de dados.           |
+| **XML**     | Texto                       | Hierárquico (tags)       | Facilita a leitura e escrita, mas mais pesado para grandes volumes de dados. | Arquivos de configuração, trocas de dados entre sistemas. |
+| **JSON**    | Texto                       | Estruturado (pares chave-valor) | Leve, fácil de ler e escrever, amplamente usado em APIs e integração. | APIs, armazenamento de configurações, respostas de serviços web. |
+
+
+!!!info
+
+    - **Compressão de Dados**: Refere-se a reduzir o tamanho dos arquivos para otimizar o armazenamento ou a transferência. Em vez de armazenar um arquivo grande, você usa um algoritmo para comprimi-lo, tornando-o mais leve. **Exemplo**: Compactar um arquivo de log de dados (como .gz) para reduzir o espaço usado no armazenamento ou acelerar a transferência entre sistemas.
+
+    - **Serialização de Dados**: Transformar dados estruturados em um formato que pode ser facilmente armazenado ou transmitido, como transformar um objeto ou estrutura em bytes. **Exemplo**: Serializar um dataframe em formato Parquet ou Avro para armazená-lo em um banco de dados ou transmitir entre sistemas distribuídos.
+
+## 10. Hadoop
 
 De acordo com o [site oficial](https://hadoop.apache.org) da Apache, o Hadoop é um framework que permite processamento distribuído de big data ao longo de clusters. Sua arquitetura comporta uma alta escalabilidade, permeando desde servidores individuais até milhares de máquinas, cada uma oferecendo armazenamento e poder computacional local.
 
@@ -142,7 +188,7 @@ Veremos detalhadamente cada um dos três elementos.
 
 [Hadoop Core: HDFS](https://panini.hashnode.dev/hadoop-core-hdfs)
 
-### 6.1 HDFS
+### 10.1 HDFS
 
 O HDFS é um sistema de arquivos construído para armazenar grandes quantidades de dados com acesso através de padrões de streaming executado em clusters de hardware commodity. Elementos desta definição:
 
@@ -155,11 +201,11 @@ Imagine um arquivo de texto de 50 terabytes de volume que precisa ser armazenado
 
 De forma direta, este massivo conjunto de dados não pode ser comportado por HDs ou SSDs com a tecnologia existente até o momento de escrita deste repositório. Assim, na impossibilidade de armazenar grandes volumes em uma única máquina, a resposta mais objetiva possível é a utilização de múltiplas máquinas capazes de comportar, cada uma, uma parcela (ou uma partição) do arquivo de dados. **Á esta organização de múltiplas máquinas dá-se o nome de cluster.**
 
-### 6.1.1 HDFS - Replicação de Dados no Cluster
+### 10.1.1 HDFS - Replicação de Dados no Cluster
 
-Uma característica interessante do HDFS são seus blocos de armazenamento de 128MB (ou 256MB em alguns cenários) do hardware commodity e replicação de dados no cluster. Se um computador do cluster hadoop falhar, o HDFS  automaticamente irá garantir que os dados solicitados pela requisição serão retornados através de uma fonte alternativa de replicação.
+Uma característica interessante do HDFS são seus blocos de armazenamento de 128MB (ou 2510MB em alguns cenários) do hardware commodity e replicação de dados no cluster. Se um computador do cluster hadoop falhar, o HDFS  automaticamente irá garantir que os dados solicitados pela requisição serão retornados através de uma fonte alternativa de replicação.
 
-### 6.1.2 HDFS - Arquitetura
+### 10.1.2 HDFS - Arquitetura
 
 Quando um client realiza uma requisição ao cluster Hadoop, estará eventualmente interagindo com diferentes tipos de nós do sistema que atuam em um padrão master-worker, sendo eles:
 
@@ -170,7 +216,7 @@ Quando um client realiza uma requisição ao cluster Hadoop, estará eventualmen
 
 [Hadoop Core: HDFS](https://panini.hashnode.dev/hadoop-core-hdfs)
 
-### 6.2 MapReduce
+### 10.2 MapReduce
 
 MapReduce é um modelo de programação desenhado para processar grandes volumes de dados em paralelo, dividindo o trabalho em múltiplos processadores em um cluster de computadores.
 
@@ -203,7 +249,7 @@ graph LR
 
 [MapReduce](https://panini.hashnode.dev/hadoop-core-mapreduce)
 
-### 6.3 YARN
+### 10.3 YARN
 
 O YARN é o sistema que gerencia os recursos no cluster de computadores, decidindo quem executa as tarefas, quando as mesmas serão executadas, quais nós estão disponíveis para receber demandas e quais estão totalmente ocupados. O YARN é como o coração que permite o funcionamento do cluster.
 
@@ -211,11 +257,11 @@ O YARN é o sistema que gerencia os recursos no cluster de computadores, decidin
 
 [Yarn](https://panini.hashnode.dev/hadoop-core-yarn)
 
-## 7. Apache Spark
+## 11. Apache Spark
 
 O Spark é um sistema de processamento distribuído de big data que foi criado para resolver as limitações do MapReduce. Antes do Spark, cada etapa exigia uma leitura e gravação no disco, tornado mais lento, devido à latência da E/S do disco. Já no Spark, o processamento é feito na **memória**, reduzindo o número de etapas em uma tarefa e reutilizando dados em várias operações paralelas.
 
-### 7.1 Workloads do Apache Spark
+### 11.1 Workloads do Apache Spark
 
 - **Spark Core:** base para a plataforma.
 - **Spark SQL:** consultas interativas.
@@ -227,41 +273,23 @@ O Spark é um sistema de processamento distribuído de big data que foi criado p
 
 [O que é Apache Spark?](https://aws.amazon.com/pt/what-is/apache-spark/)
 
-### 7.2 Benefícios do Apache Spark
+### 11.2 Benefícios do Apache Spark
 
 - **Rápido:** por meio do armazenamento em cache na memória.
 - **Para desenvolvedores:** sustenta de modo nativo Java, Scala, R e Python, oferecendo a você várias linguagens para a criação de aplicativos.
 
-### 7.3 Apache Hadoop vs Apache Spark
+### 11.3 Apache Hadoop vs Apache Spark
 
 O Hadoop possui o HDFS para armazenamento e YARN para gerenciar recusos de computação.
 
 O Spark não possui sistema próprio de armazenamento, mas pode consultar no HDFS, Redshift, S3 etc.
 
-## 8. Camadas de dados
 
-As camadas SOR (System of Record), SOT (System of Transformation) e SPEC (Specialized Processing Engines) gerenciam diferentes estágios do ciclo de vida dos dados, desde o armazenamento bruto até a transformação e o processamento especializado. Abaixo breve descrição das camadas:
-
-- **Camada SOR (System of Record):** Responsável pelo armazenamento inicial dos dados brutos, funcionando como a principal referência para informações ainda não processadas;
-- **Camada SOT (System of Transformation):** Destinada à transformação, limpeza e preparação dos dados para análise. Nessa etapa, são aplicadas regras de negócios e ajustes necessários para garantir a qualidade das informações;
-- **Camada SPEC (Specialized Processing Engines):** Focada em processamentos avançados ou especializados, como execução de algoritmos de machine learning, geração de novas features a partir dos dados e transformações específicas para aprofundar as análises e gerar insights.
-
-**Desenho de camadas de dados, processamento e ingestão**
-
-<figure markdown="span">
-  ![Camadas de Dados](./assets/00-camadas-de-dados.png){ width="800" }
-</figure>
-
-<b>Referências</b>
-
-[Como o Itaú reduziu custos de armazenamento no Amazon S3](https://aws.amazon.com/pt/blogs/aws-brasil/como-o-itau-reduziu-custos-de-armazenamento-no-amazon-s3/)
-
-
-## 9. Qualidade dos dados
+## 12. Qualidade dos dados
 
 Qualidade de Dados (Data Quality, em inglês) é uma avaliação da precisão, completude, consistência, confiabilidade e atualidade dos dados. Em outras palavras, refere-se ao grau de excelência dos dados
 
-### 9.1 Métricas de qualidade
+### 12.1 Métricas de qualidade
 **1. Completude:** Isso se refere a se todos os dados necessários estão disponíveis. Se houver campos obrigatórios ausentes em um conjunto de dados, ele não será considerado completo.
 
 **2. Consistência:** Os dados precisam ser consistentes, o que significa que não devem existir discrepâncias quando comparados entre diferentes conjuntos de dados ou diferentes partes do mesmo conjunto de dados.
