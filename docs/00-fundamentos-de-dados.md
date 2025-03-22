@@ -1,4 +1,4 @@
-# **Big Data**
+# **Fundamentos de Engenharia de Dados**
 
 Antes de iniciar os estudos práticos em engenharia de dados, como a democratização de dados com AWS Glue e Spark, é fundamental compreender os conceitos essenciais da área. Esta seção apresentará os fundamentos necessários para uma base sólida no tema.
 
@@ -9,7 +9,7 @@ De acordo com o site da Oracle, Big Data é um conjunto de dados muito grandes, 
 - <b>Volume:</b> as organizações coletam dados de várias fontes, tornando o volume muito grande.
 - <b>Velocidade:</b> os dados são transmitidos em alta velocidade e devem ser tratados em tempo hábil.
 - <b>Variedade:</b> os dados vêm em todos os tipos e formatos. Dados estruturados (padronizados, com os mesmos atributos para todos os valores de dados). Semi estruturados (json). Não Estruturados (documento, imagem, áudio, vídeos etc.)
-- <b>Veracidade:</b> a qualidade dos dados capturados pode variar muito, afetando a precisão das análises
+- <b>Veracidade:</b> a qualidade dos dados capturados pode variar muito, afetando a precisão das análises.
 - <b>Valor:</b> é necessário transformar os dados em valor.
 
 <b>Referências</b>
@@ -178,9 +178,9 @@ De acordo com o [site oficial](https://hadoop.apache.org) da Apache, o Hadoop é
 
 O Hadoop possui três elementos fundamentais para armazenar e processar de forma distribuída grandes quantidade de dados, sendo:
 
-- **HDFS (Hadoop Distributed File System):** sistema de armazenamento distribuído do Hadoop
-- **MapReduce:** modelo de programação baseado em mappers e reducers
-- **YARN (Yet Another Resource Negotiator):** gerenciador de recursos do cluster Hadoop
+- **HDFS (Hadoop Distributed File System):** sistema de armazenamento distribuído do Hadoop.
+- **MapReduce:** modelo de programação baseado em mappers e reducers.
+- **YARN (Yet Another Resource Negotiator):** gerenciador de recursos do cluster Hadoop.
 
 Veremos detalhadamente cada um dos três elementos.
 
@@ -283,7 +283,6 @@ O Spark é um sistema de processamento distribuído de big data que foi criado p
 O Hadoop possui o HDFS para armazenamento e YARN para gerenciar recusos de computação.
 
 O Spark não possui sistema próprio de armazenamento, mas pode consultar no HDFS, Redshift, S3 etc.
-
 
 ## 12. Qualidade dos dados
 

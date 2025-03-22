@@ -8,7 +8,7 @@ Até o final de 2024, atuei em uma squad de negócios, focado em análise de dad
 
 De acordo com o [Microsoft Learn](https://learn.microsoft.com/pt-br/training/career-paths/data-engineer), um engenheiros de dados integra, transforma e consolida dados de vários sistemas de dados estruturados e não estruturados em estruturas adequadas para a criação de soluções de análise.
 
-Para atingir esse objetivo, estruturarei meus estudos com foco nas seguintes certificações:
+Como atuo na governança de todas as APIs da instituição, iniciarei meus estudos focando em conceitos de engenharia de software aplicados ao universo das APIs. Após construir uma base sólida nesse tema, direcionarei meus estudos para as seguintes certificações, com o objetivo de me aprimorar como engenheiro de dados:
 
 <figure markdown="span">
   ![Badges e certificações](./assets/badges.png){ width="800" }
