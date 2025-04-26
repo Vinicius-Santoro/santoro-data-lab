@@ -1,4 +1,4 @@
-# **Fundamentos de Engenharia de Dados**
+# **Fundamentos de Dados**
 
 Antes de iniciar os estudos práticos em engenharia de dados, como a democratização de dados com AWS Glue e Spark, é fundamental compreender os conceitos essenciais da área. Esta seção apresentará os fundamentos necessários para uma base sólida no tema.
 
