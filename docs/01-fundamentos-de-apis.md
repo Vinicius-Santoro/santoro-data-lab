@@ -165,7 +165,11 @@ Query Parameters são usados para filtrar, ordenar ou paginar os dados da API. E
 
 `/produtos?categoria=eletronicos&page=2`
 
-Path Parameters são usados para identificar recursos específicos na URL, sendo uma parte essencial da rota. Eles são definidos diretamente no caminho da URL, entre chaves, como em `/usuarios/{id}` ou `/produtos/{produtoId}/detalhes`. Path parameters são obrigatórios para acessar um recurso específico e não são opcionais como os query parameters, sendo parte da estrutura da URL.
+Esses parâmetros não são necessários para a identificação do recurso, mas ajudam a personalizar a resposta da API.
+
+Path Parameters são usados para identificar recursos específicos na URL, sendo uma parte essencial da rota. Eles são definidos diretamente no caminho da URL, entre chaves, como em `/usuarios/{id}` ou `/produtos/{produtoId}/detalhes`.
+
+Path parameters são obrigatórios para acessar um recurso específico e não são opcionais como os query parameters, sendo parte da estrutura da URL.
 
 ## Métodos HTTP e Status Codes
 
