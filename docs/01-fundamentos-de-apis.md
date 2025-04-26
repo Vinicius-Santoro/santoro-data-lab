@@ -23,9 +23,9 @@ Em resumo, APIs são fundamentais para:
 
 ## 2. Tipos de API
 
-### 2.1 REST (Representational State Transfer)
+### 2.1 REST
 
-REST é o tipo de API mais usado atualmente.
+API REST (Representational State Transfer) é o tipo de API mais usado atualmente.
 Ela funciona como um cardápio de internet: você faz um pedido (requisição) para um endereço (URL), e o servidor te entrega exatamente aquilo que você pediu, normalmente em formato JSON.
 
 - Usa os métodos padrão da internet: GET, POST, PUT, DELETE.
@@ -34,8 +34,8 @@ Ela funciona como um cardápio de internet: você faz um pedido (requisição) p
 
 **Exemplo:** Quando você entra num app para ver suas mensagens, o app faz um GET para /mensagens, e recebe a lista.
 
-### 2.2 SOAP (Simple Object Access Protocol)
-SOAP é um tipo de API mais antigo e mais formal.
+### 2.2 SOAP
+SOAP (Simple Object Access Protocol) é um tipo de API mais antigo e mais formal.
 Ela funciona como uma troca de cartas muito bem organizada: você sempre envia uma mensagem seguindo regras super específicas, usando o formato XML.
 
 - Usa um padrão bem rígido de mensagens e respostas.
@@ -102,7 +102,7 @@ WebSockets é um tipo especial de comunicação em tempo real.
 
     - **Integração:** Enquanto o WebSocket permite a comunicação em tempo real com o cliente, Kafka e SQS são usados para gerenciar e processar eventos e mensagens no backend, facilitando a escalabilidade e integração entre sistemas.
 
-## 3. Componentes básicos de uma API
+## 3. Componentes básicos
 
 ### 3.1 Endpoints
 
@@ -120,12 +120,52 @@ Cada endpoint é geralmente mapeado para uma operação HTTP:
 - ```GET https://api.exemplo.com/usuarios/123```: Retorna os dados do usuário com ID 123.
 - ```POST https://api.exemplo.com/usuarios```: Cria um novo usuário.
 
-### 3.1 Endpoints
+### 3.1 Rotas
 
-- Rotas: Estrutura e boas práticas.
-- Query Parameters vs. Path Parameters: Diferenças e usos.
-- Corpo da requisição (Request Body): Formatos como JSON e XML.
-- Headers: Para que servem e como usá-los corretamente.
+A rota é o caminho ou direção que a requisição segue dentro do servidor para chegar a um determinado recurso. 
+
+**Exemplo:** Em uma API de usuários, a rota pode ser definida como `/usuarios`, ou `/usuarios/{id}`.
+
+!!! Question
+
+    **Qual a diferença de endpoint e rota?**
+
+    A diferença entre endpoint e rota é sutil, mas fundamental para entender o funcionamento de uma API.
+
+    - **Rota:** Refere-se ao caminho ou URL que a requisição segue para acessar um recurso.
+    - **Endpoint:** É a combinação do método HTTP (como GET, POST, etc.) com a rota, ou seja, é o ponto de acesso completo que define a operação que será executada.
+
+    **Exemplo:**
+
+    - Rota: `/usuarios`
+    - Endpoint:
+        - `GET /usuarios`: Obtém a lista de usuários.
+        - `POST /usuarios`: Cria um novo usuário.
+
+#### 3.1.2 Boas práticas
+
+| **Prática**                                   | **Descrição**                                                                                                                                                  |
+|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Use Substantivos no Plural para Recursos**  | Utilize nomes no plural para representar recursos (ex: `/usuarios` em vez de `/usuario`).                                                                    |
+| **Mantenha URLs Simples e Descritivas**       | As rotas devem ser intuitivas e refletir claramente o recurso (ex: `/produtos`, `/clientes/{id}`).                                                              |
+| **Use Métodos HTTP Corretos**                 | Use `GET` para recuperar dados, `POST` para criar, `PUT`/`PATCH` para atualizar e `DELETE` para remover recursos.                                               |
+| **Use Níveis Hierárquicos para Relações**     | Use estrutura hierárquica para indicar relacionamento entre recursos (ex: `/usuarios/{usuarioId}/pedidos`).                                                     |
+| **Evite Verbos nas Rotas**                    | Não coloque verbos nas rotas, pois os métodos HTTP já indicam a ação (ex: `/usuarios` e não `/getUsuarios`).                                                     |
+| **Use Query Parameters para Filtros**         | Utilize query parameters para filtros, ordenação ou paginação (ex: `/usuarios?idade=30&ordenar=nome`).                                                         |
+| **Evite Uso Excessivo de Sub-Rotas**          | Mantenha as rotas simples e evite profundidade excessiva (ex: `/usuarios/{usuarioId}/enderecos` e não `/usuarios/{usuarioId}/endereco/{enderecoId}/telefone`). |
+| **Use Convenções Padrão de API RESTful**      | Mantenha consistência nas convenções de nomes e design de rotas (ex: `/produtos`, `/produtos/{id}`).                                                           |
+| **Retorne Códigos de Status HTTP Adequados**  | Utilize códigos de status HTTP para indicar sucesso ou falha (ex: `200 OK`, `404 Not Found`, `500 Internal Server Error`).                                    |
+| **Documente as Rotas**                        | Documente detalhadamente cada rota, incluindo métodos, parâmetros e tipos de resposta.                                                                        |
+
+### 4. Query e Path Parameters
+
+Query Parameters são usados para filtrar, ordenar ou paginar os dados da API. Eles são adicionados após o ponto de interrogação (?) na URL e seguem o formato key=value.
+
+**Exemplo:**
+
+`/produtos?categoria=eletronicos&page=2`
+
+Path Parameters são usados para identificar recursos específicos na URL, sendo uma parte essencial da rota. Eles são definidos diretamente no caminho da URL, entre chaves, como em `/usuarios/{id}` ou `/produtos/{produtoId}/detalhes`. Path parameters são obrigatórios para acessar um recurso específico e não são opcionais como os query parameters, sendo parte da estrutura da URL.
 
 ## Métodos HTTP e Status Codes
 
