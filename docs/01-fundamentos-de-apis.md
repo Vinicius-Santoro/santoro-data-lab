@@ -543,4 +543,194 @@ Allow: GET, POST, OPTIONS
             Navegador->>Cliente: Retorna dados para o cliente
         ```
 
-## Status Code
+### 5.8 TRACE
+
+**Descrição:**
+Faz o servidor ecoar (devolver) a requisição recebida. Serve para debug de rede.
+
+**Uso típico:**
+Raramente usado. Pode ser bloqueado por servidores modernos por motivos de
+segurança.
+
+**Exemplo:**
+```json
+TRACE /api/teste HTTP/1.1
+Host: exemplo.com
+```
+
+### 5.9 CONNECT
+
+**Descrição:**
+Estabelece um túnel de comunicação, geralmente para protocolos seguros
+(tipo HTTPS via proxy).
+
+**Uso típico:**
+Usado em proxies para criar conexões SSL/TLS.
+
+**Exemplo:**
+```json
+CONNECT www.exemplo.com:443 HTTP/1.1
+Host: www.exemplo.com
+```
+
+!!! question "Pergunta"
+
+    **O que são conexões SSL/TLS?**
+
+    SSL (Secure Sockets Layer) e TLS (Transport Layer Security) são protocolos
+    de segurança que criptografam a comunicação entre um cliente
+    (como um navegador) e um servidor, garantindo a privacidade e a integridade
+    dos dados durante a troca.
+    
+    - SSL: Primeiro protocolo de criptografia, descontinuado devido a falhas
+    de segurança.
+    - TLS: Sucessor do SSL, utilizado para criptografar conexões seguras na web.
+    
+    O TLS continua sendo a base da comunicação segura na web,
+    especialmente em conexões HTTPS. O método HTTP CONNECT é utilizado para
+    criar um túnel de comunicação, frequentemente para estabelecer conexões
+    seguras via SSL/TLS, especialmente quando se usa um proxy - um servidor
+    intermediário que repassa as requisições do cliente para o servidor de
+    destino e devolve as respostas (geralmente é o navegador).
+
+    **Tipos de Proxy**
+
+    - **Proxy HTTP:** Intercepta requisições HTTP, utilizado para acessar sites
+    e web services.
+    - **Proxy HTTPS:** Similar ao proxy HTTP, mas suporta conexões seguras
+    (HTTPS), podendo também atuar na criação de túneis SSL/TLS.
+    - **Proxy transparente:** O cliente não sabe que está usando o proxy, já que
+    ele não altera a requisição ou a resposta de forma visível.
+    - **Proxy reverso:** Em vez de agir em nome de clientes, o proxy reverso age
+    em nome do servidor, lidando com as requisições de entrada.
+
+    **Representação de comunicação segura com SSL/TLS**
+
+    ```mermaid
+    sequenceDiagram
+        autonumber
+        participant Cliente
+        participant Servidor
+
+        Cliente->>Servidor: Envia requisição HTTPS (conexão segura)
+        Servidor->>Cliente: Envia seu certificado SSL/TLS (para verificar identidade)
+        Cliente->>Servidor: Verifica o certificado (confirma se é assinado por uma CA confiável)
+        Cliente->>Servidor: Gera chave de sessão para criptografar dados e criptografa com a chave pública do servidor
+        Servidor->>Cliente: Descriptografa com sua chave privada (acessa a chave de sessão)
+        Servidor->>Cliente: Envia confirmação (Handshake concluído, conexão segura estabelecida)
+        Cliente->>Servidor: Estabelece comunicação segura (dados podem ser transmitidos de forma criptografada)
+    ```
+
+## 6. Status Code
+
+Os status codes (códigos de status) nas APIs são respostas numéricas enviadas
+pelo servidor para o cliente (como um navegador ou outro serviço) para indicar
+o resultado de uma solicitação HTTP. Eles são uma maneira padronizada de
+comunicar o sucesso, falha ou qualquer outra situação relativa à requisição feita.
+
+### 6.1 Principais categorias de status codes:
+
+- **1xx (Informativo):** Indica que a solicitação foi recebida e o processo está em andamento. Exemplo: 100 Continue.
+- **2xx (Sucesso):** Indica que a solicitação foi recebida, entendida e processada com sucesso. Exemplo: 200 OK, 201 Created.
+- **3xx (Redirecionamento):** Indica que o cliente deve realizar uma ação adicional para concluir a solicitação. Exemplo: 301 Moved Permanently, 302 Found.
+- **4xx (Erro do cliente):** Indica que houve um erro na solicitação feita pelo cliente (por exemplo, dados incorretos ou não autorizados). Exemplo: 400 Bad Request, 401 Unauthorized, 404 Not Found.
+- **5xx (Erro do servidor):** Indica que o servidor falhou ao processar uma solicitação válida. Exemplo: 500 Internal Server Error, 502 Bad Gateway.
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 1xx Informativo -->
+    <tr>
+      <td class="texto-azul">100</td>
+      <td class="texto-azul">Continue – O servidor recebeu a solicitação e o cliente deve continuar enviando o restante da solicitação</td>
+    </tr>
+    <tr>
+      <td class="texto-azul">101</td>
+      <td class="texto-azul">Switching Protocols – O servidor está mudando para um protocolo diferente</td>
+    </tr>
+    <tr>
+      <td class="texto-azul">102</td>
+      <td class="texto-azul">Processing – O servidor recebeu e está processando a solicitação, mas ainda não tem uma resposta</td>
+    </tr>
+    <!-- 2xx Sucesso -->
+    <tr>
+      <td class="texto-verde">200</td>
+      <td class="texto-verde">OK – A solicitação foi bem-sucedida</td>
+    </tr>
+    <tr>
+      <td class="texto-verde">201</td>
+      <td class="texto-verde">Created – O recurso foi criado com sucesso</td>
+    </tr>
+    <tr>
+      <td class="texto-verde">202</td>
+      <td class="texto-verde">Accepted – A solicitação foi aceita para processamento, mas ainda não foi concluída</td>
+    </tr>
+    <tr>
+      <td class="texto-verde">204</td>
+      <td class="texto-verde">No Content – A solicitação foi bem-sucedida, mas não há conteúdo para retornar</td>
+    </tr>
+    
+    <!-- 3xx Redirecionamento -->
+    <tr>
+      <td class="texto-amarelo">301</td>
+      <td class="texto-amarelo">Moved Permanently – O recurso foi movido permanentemente para uma nova URL</td>
+    </tr>
+    <tr>
+      <td class="texto-amarelo">302</td>
+      <td class="texto-amarelo">Found – O recurso foi encontrado, mas foi movido temporariamente</td>
+    </tr>
+    <tr>
+      <td class="texto-amarelo">303</td>
+      <td class="texto-amarelo">See Other – A resposta pode ser encontrada em outra URL</td>
+    </tr>
+    <tr>
+      <td class="texto-amarelo">304</td>
+      <td class="texto-amarelo">Not Modified – O recurso não foi modificado desde a última solicitação</td>
+    </tr>
+    
+    <!-- 4xx Erro do cliente -->
+    <tr>
+      <td class="texto-vermelho">400</td>
+      <td class="texto-vermelho">Bad Request – A solicitação não pôde ser processada devido a erro do cliente</td>
+    </tr>
+    <tr>
+      <td class="texto-vermelho">401</td>
+      <td class="texto-vermelho">Unauthorized – A solicitação requer autenticação</td>
+    </tr>
+    <tr>
+      <td class="texto-vermelho">403</td>
+      <td class="texto-vermelho">Forbidden – O servidor entendeu a solicitação, mas se recusa a autorizá-la</td>
+    </tr>
+    <tr>
+      <td class="texto-vermelho">404</td>
+      <td class="texto-vermelho">Not Found – O recurso solicitado não foi encontrado no servidor</td>
+    </tr>
+    <tr>
+      <td class="texto-vermelho">405</td>
+      <td class="texto-vermelho">Method Not Allowed – O método especificado não é permitido para o recurso</td>
+    </tr>
+    
+    <!-- 5xx Erro do servidor -->
+    <tr>
+      <td class="texto-vermelho">500</td>
+      <td class="texto-vermelho">Internal Server Error – O servidor encontrou uma condição inesperada</td>
+    </tr>
+    <tr>
+      <td class="texto-vermelho">502</td>
+      <td class="texto-vermelho">Bad Gateway – O servidor atuou como gateway e recebeu uma resposta inválida</td>
+    </tr>
+    <tr>
+      <td class="texto-vermelho">503</td>
+      <td class="texto-vermelho">Service Unavailable – O servidor não está pronto para lidar com a solicitação (manutenção, sobrecarga, etc.)</td>
+    </tr>
+    <tr>
+      <td class="texto-vermelho">504</td>
+      <td class="texto-vermelho">Gateway Timeout – O servidor não recebeu uma resposta no tempo esperado de outro servidor</td>
+    </tr>
+  </tbody>
+</table>
