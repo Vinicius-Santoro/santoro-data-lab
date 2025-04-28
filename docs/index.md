@@ -12,7 +12,7 @@ De acordo com o [Microsoft Learn](https://learn.microsoft.com/pt-br/training/car
 
 Atualmente, atuo na **governança de todas as APIs do Itaú Unibanco**. Por isso, iniciarei meus estudos focando em conceitos de engenharia de software aplicados ao universo de APIs. Após consolidar essa base, avançarei para áreas mais específicas da engenharia de dados.
 
-## **🚀 Principais objetivos desse projeto**
+## **🚀 Objetivos desse projeto**
 
 Este projeto será dividido em 5 etapas, cada uma focada em um aspecto essencial do trabalho com APIs. Segue abaixo cada uma delas:
 
