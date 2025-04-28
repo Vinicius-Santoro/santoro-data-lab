@@ -8,7 +8,7 @@ theme:
     - content.code.copy
     - content.code.select
   palette:
-    # Dark Mode
+    # Dark Mode
     - scheme: slate
       toggle:
         icon: material/weather-sunny
@@ -46,3 +46,6 @@ markdown_extensions:
   - pymdownx.details
 
 copyright: Copyright &copy; 2024 Vinicius Naziozeno Santoro do Rio
+
+extra_css:
+  - styles/custom.css  # Referência para o seu arquivo custom.css

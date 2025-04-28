@@ -4,7 +4,7 @@ The purpose of this site is to document my learning process to become a data eng
 
 ### How to run localy
 ```py
-python -m mkdocs serve
+python3.12 -m mkdocs serve
 ```
 
 ### The deployed site

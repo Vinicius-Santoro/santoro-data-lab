@@ -407,7 +407,9 @@ Host: exemplo.com
 ### 5.6 HEAD
 
 **Descrição:**
-Igual ao GET, **mas só traz os headers, sem o corpo** da resposta. Útil para saber se o recurso existe ou verificar metadados (tipo tamanho, tipo de arquivo).
+Igual ao GET, **mas só traz os headers, sem o corpo** da resposta. Útil para
+saber se o recurso existe ou verificar metadados (tipo tamanho, tipo de
+arquivo).
 
 **Uso típico:**
 Checar se uma imagem existe sem baixar.
@@ -424,7 +426,8 @@ Host: exemplo.com
 Retorna os métodos HTTP suportados para um recurso (GET, POST, PUT, etc).
 
 **Uso típico:**
-Em CORS (Cross-Origin Resource Sharing) para saber se é permitido acessar aquele recurso.
+Em CORS (Cross-Origin Resource Sharing) para saber se é permitido acessar
+aquele recurso.
 
 **Exemplo:**
 ```json
@@ -437,7 +440,7 @@ Host: exemplo.com
 Allow: GET, POST, OPTIONS
 ```
 
-!!! Question "Pergunta"
+!!! question "Pergunta"
 
     **O que seria esse CORS?**
 
@@ -446,44 +449,98 @@ Allow: GET, POST, OPTIONS
     página web podem ser acessados a partir de domínios diferentes (ou seja,
     de origens diferentes).
 
-    **O que significa "origem" no contexto de CORS?**
+    ??? tip "Detalhes"
+        **O que significa "origem" no contexto de CORS?**
 
-    A "origem" é composta pelo ==protocolo (HTTP, HTTPS)==, o domínio
-    (ex: exemplo.com) e a porta (ex: :8080). Por exemplo, `https://exemplo.com`
-    tem uma origem diferente de `http://outroexemplo.com` ou
-    `https://exemplo.com:8080`.
+        A "origem" é composta pelo:
 
-<div class="mdx-switch">
-  <button data-md-color-primary="red"><code>red</code></button>
-</div>
+        - **Protocolo**: <span class="texto-azul">HTTP ou HTTPS</span>
+        - **Domínio**: <span class="texto-laranja">exemplo.com</span>
+        - **Porta**: <span class="texto-verde">:8080</span>
 
-<script>
-  var buttons = document.querySelectorAll("button[data-md-color-primary]")
-  buttons.forEach(function(button) {
-    button.addEventListener("click", function() {
-      var attr = this.getAttribute("data-md-color-primary")
-      document.body.setAttribute("data-md-color-primary", attr)
-      var name = document.querySelector("#__code_1 code span.l")
-      name.textContent = attr.replace("-", " ")
-    })
-  })
-</script>
+        Por exemplo, cada uma dessas origens são diferentes:
 
-    ```mermaid
-    sequenceDiagram
-        participant Cliente
-        participant Navegador
-        participant Servidor
+        - <span class="texto-azul">https://</span>
+        <span class="texto-laranja">exemplo.com</span>
+        - <span class="texto-azul">http://</span>
+        <span class="texto-laranja">outroexemplo.com</span>
+        - <span class="texto-azul">https://</span>
+        <span class="texto-laranja">exemplo.com</span><span class="texto-verde">:8080</span>
 
-        Cliente->>Navegador: Envia requisição (cross-origin)
-        Navegador->>Servidor: Envia pré-verificação OPTIONS
-        Servidor-->>Navegador: Retorna cabeçalhos CORS (ex: Access-Control-Allow-Origin)
-        Navegador->>Cliente: Permite ou bloqueia o acesso
-        Cliente->>Navegador: Envia requisição real (GET, POST, etc.)
-        Navegador->>Servidor: Envia requisição real
-        Servidor-->>Navegador: Retorna resposta real
-        Navegador->>Cliente: Retorna dados para o cliente
-    ```
 
+          Quando **não é especificada a porta** em uma URL, o navegador ou a
+          aplicação assume a porta padrão para o protocolo utilizado:
+
+          - Para HTTP (http://), a porta padrão é 80.
+          - Para HTTPS (https://), a porta padrão é 443.
+
+        **Como o CORS funciona?**
+
+        1. Solicitação entre diferentes origens (cross-origin):
+        
+            Quando um navegador faz uma solicitação a um recurso de um domínio
+            diferente (por exemplo, um frontend em www.exemplo1.com tentando acessar
+            uma API em www.exemplo2.com), essa é uma solicitação cross-origin.
+
+        2. Pré-verificação (preflight request) com OPTIONS:
+        
+            Antes de enviar a requisição real (como GET ou POST), o navegador pode
+            enviar uma requisição OPTIONS para verificar se o servidor permite o acesso
+            ao recurso a partir de outro domínio. O servidor então responde com os
+            métodos permitidos e os headers CORS.
+
+        3. Resposta do servidor:
+        
+            O servidor inclui cabeçalhos CORS específicos que indicam se a requisição
+            entre origens é permitida. Por exemplo:
+
+            - **Access-Control-Allow-Origin:** Define quais origens podem acessar o
+            recurso.
+            - **Access-Control-Allow-Methods:** Especifica os métodos HTTP permitidos
+            (como `GET`, `POST`, `PUT`, etc.).
+            - **Access-Control-Allow-Headers:** Define quais cabeçalhos podem ser
+            usados na solicitação.
+
+        **Exemplo de Cabeçalhos CORS**
+
+        Requisição (preflight) OPTIONS:
+        ```json
+        OPTIONS /api/usuarios HTTP/1.1
+        Host: exemplo.com
+        Origin: https://meusite.com
+        ```
+
+        Resposta do servidor (se permitido):
+        ```json
+        HTTP/1.1 200 OK
+        Access-Control-Allow-Origin: https://meusite.com
+        Access-Control-Allow-Methods: GET, POST, OPTIONS
+        Access-Control-Allow-Headers: Content-Type
+        ```
+
+        Exemplo com Access-Control-Allow-Origin:
+
+        Se o servidor permitir que apenas o domínio https://meusite.com acesse a
+        API, ele retornará algo como:
+        ```json
+        Access-Control-Allow-Origin: https://meusite.com
+        ```
+
+        **Visualização de um fluxo com CORS**
+        ```mermaid
+        sequenceDiagram
+            participant Cliente
+            participant Navegador
+            participant Servidor
+
+            Cliente->>Navegador: Envia requisição (cross-origin)
+            Navegador->>Servidor: Envia pré-verificação OPTIONS
+            Servidor-->>Navegador: Retorna cabeçalhos CORS (ex: Access-Control-Allow-Origin)
+            Navegador->>Cliente: Permite ou bloqueia o acesso
+            Cliente->>Navegador: Envia requisição real (GET, POST, etc.)
+            Navegador->>Servidor: Envia requisição real
+            Servidor-->>Navegador: Retorna resposta real
+            Navegador->>Cliente: Retorna dados para o cliente
+        ```
 
 ## Status Code
