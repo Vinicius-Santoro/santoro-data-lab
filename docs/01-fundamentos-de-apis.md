@@ -1,12 +1,6 @@
 # **Fundamentos de APIs**
 
-## Objetivo
-
-Entender o que é uma API, como funciona e quais são seus tipos e padrões.
-
 ## 1. O que é uma API?
-
-### 1.1 Introdução
 
 Uma API (Application Programming Interface) é um conjunto de regras que permite
 que diferentes sistemas se comuniquem entre si de maneira estruturada e
@@ -628,7 +622,7 @@ pelo servidor para o cliente (como um navegador ou outro serviço) para indicar
 o resultado de uma solicitação HTTP. Eles são uma maneira padronizada de
 comunicar o sucesso, falha ou qualquer outra situação relativa à requisição feita.
 
-### 6.1 Principais categorias de status codes:
+### 6.1 Principais categorias
 
 - **1xx (Informativo):** Indica que a solicitação foi recebida e o processo está em andamento. Exemplo: 100 Continue.
 - **2xx (Sucesso):** Indica que a solicitação foi recebida, entendida e processada com sucesso. Exemplo: 200 OK, 201 Created.
@@ -674,7 +668,6 @@ comunicar o sucesso, falha ou qualquer outra situação relativa à requisição
       <td class="texto-verde">204</td>
       <td class="texto-verde">No Content – A solicitação foi bem-sucedida, mas não há conteúdo para retornar</td>
     </tr>
-    
     <!-- 3xx Redirecionamento -->
     <tr>
       <td class="texto-amarelo">301</td>
