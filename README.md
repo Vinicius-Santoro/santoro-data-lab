@@ -4,7 +4,7 @@ Olá! Muito prazer, sou o Vinicius! Seja bem-vindo ao meu espaço de aprendizado
 
 Até o final de 2024, atuei em uma squad de negócios, focado em análise de dados. Porém, descobri meu interesse em unir a engenharia de software com dados e estou iniciando minha carreira como engenheiro de dados!
 
-	O objetivo deste site é documentar todo o meu processo de aprendizado para me tornar um engenheiro de dados!
+**O objetivo deste site é documentar todo o meu processo de aprendizado para me tornar um engenheiro de dados!**
 
 De acordo com o [Microsoft Learn](https://learn.microsoft.com/pt-br/training/career-paths/data-engineer), engenheiros de dados integram, transformam e consolidam dados de sistemas estruturados e não estruturados, criando bases sólidas para soluções de análise.
 
@@ -42,6 +42,4 @@ python3.12 -m mkdocs serve
 
 - Link do site:
 
-```
 https://vinicius-santoro.github.io/santoro-data-lab/
-```
