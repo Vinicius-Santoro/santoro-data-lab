@@ -30,3 +30,18 @@ Atualmente, atuo na **governança de todas as APIs do Itaú Unibanco**. Por isso
 - 🎙️ Participação no podcast Data Hackers:
 	- [Episódio ##88: Jornada de Engenharia de Dados e Analytics no Itaú](https://medium.com/data-hackers/jornada-de-engenharia-de-dados-e-analytics-no-ita%C3%BA-data-hackers-podcast-88-5518d40f2b38).
 - 🏆 Campeão da [Batalha de Dados do Itaú Unibanco de 2024](https://www.linkedin.com/posts/viniciusrio_vencedores-da-batalha-de-dados-do-ita%C3%BA-unibanco-activity-7224895881529974784-CuUD?utm_source=share&utm_medium=member_desktop).
+
+
+## **ℹ️ Informações**
+
+- Como rodar localmente:
+
+```
+python3.12 -m mkdocs serve
+```
+
+- Link do site:
+
+```
+https://vinicius-santoro.github.io/santoro-data-lab/
+```
