@@ -2,28 +2,16 @@
 
 ## 1. O que é uma API?
 
-Uma API (Application Programming Interface) é um conjunto de regras que permite
-que diferentes sistemas se comuniquem entre si de maneira estruturada e
-previsível. Em termos simples, uma API atua como uma ponte que conecta
-aplicações, possibilitando a troca de dados e funcionalidades sem que seja
-necessário conhecer a implementação interna de cada sistema.
+API é a sigla para Application Programming Interface, ou Interface de Programação de Aplicações. Ela funciona como uma ponte que permite que diferentes sistemas “conversem” entre si e troquem informações de forma organizada.
 
-Segundo o livro "Designing Web APIs" (Brenda Jin, Saurabh Sahni, Amir Shevat,
-2018), uma API bem projetada é como uma "promessa de serviço" que define
-exatamente o que pode ser requisitado, o que será entregue e em quais condições. 
+Pense em uma API como um cardápio em um restaurante: você vê o que pode pedir, faz sua escolha, e a cozinha entrega o prato — sem você precisar saber como foi preparado. Da mesma forma, com uma API, um sistema pode pedir dados ou ações de outro sistema, sem saber como ele foi construído por dentro.
 
-A importância das APIs cresceu com a transformação digital das empresas: elas
-são a base da comunicação entre serviços em nuvem, da integração entre
-parceiros de negócios e da inovação de produtos. Sem APIs, seria inviável
-escalar sistemas complexos como redes sociais, plataformas de pagamento,
-marketplaces e serviços de streaming.
+As APIs são muito importantes hoje em dia porque:
 
-Em resumo, APIs são fundamentais para:
-
-- Conectar sistemas de forma eficiente e segura;
-- Acelerar o desenvolvimento de software;
-- Permitir integrações com parceiros e terceiros;
-- Potencializar a inovação digital e a criação de novos negócios.
+- Facilitam a comunicação entre sistemas;
+- Ajudam os desenvolvedores a criar aplicações mais rápido;
+- Permitem que empresas integrem seus sistemas com os de parceiros;
+- São a base para serviços como redes sociais, apps de delivery, pagamentos online e muito mais.
 
 ## 2. Tipos de API
 

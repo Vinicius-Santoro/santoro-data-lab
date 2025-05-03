@@ -33,17 +33,125 @@ The Simple Past is a verb tense used to talk about actions or events that happen
 ### 2.3 Regular and Irregular Verbs
 
 **Regular verbs** form the past tense by adding **-ed** to the base form.  
-Examples:  
+Examples:
+
 - play → played  
 - work → worked  
 - talk → talked
 
 **Irregular verbs** do not follow a fixed pattern when changing to the past tense. You need to memorize their past forms.  
-Examples:  
+Examples:
+
 - go → went  
 - have → had  
 - eat → ate  
 - see → saw
+
+??? tip "100 of the most common irregular verbs in English"
+
+      | #  | Base Form   | Simple Past |
+      |----|-------------|-------------|
+      | 1  | arise       | arose       |
+      | 2  | awake       | awoke       |
+      | 3  | be          | was/were    |
+      | 4  | bear        | bore        |
+      | 5  | beat        | beat        |
+      | 6  | become      | became      |
+      | 7  | begin       | began       |
+      | 8  | bend        | bent        |
+      | 9  | bet         | bet         |
+      | 10 | bid         | bid         |
+      | 11 | bite        | bit         |
+      | 12 | bleed       | bled        |
+      | 13 | blow        | blew        |
+      | 14 | break       | broke       |
+      | 15 | bring       | brought     |
+      | 16 | broadcast   | broadcast   |
+      | 17 | build       | built       |
+      | 18 | burn        | burnt/burned|
+      | 19 | burst       | burst       |
+      | 20 | buy         | bought      |
+      | 21 | catch       | caught      |
+      | 22 | choose      | chose       |
+      | 23 | cling       | clung       |
+      | 24 | come        | came        |
+      | 25 | cost        | cost        |
+      | 26 | creep       | crept       |
+      | 27 | cut         | cut         |
+      | 28 | deal        | dealt       |
+      | 29 | dig         | dug         |
+      | 30 | do          | did         |
+      | 31 | draw        | drew        |
+      | 32 | dream       | dreamt/dreamed |
+      | 33 | drink       | drank       |
+      | 34 | drive       | drove       |
+      | 35 | eat         | ate         |
+      | 36 | fall        | fell        |
+      | 37 | feed        | fed         |
+      | 38 | feel        | felt        |
+      | 39 | fight       | fought      |
+      | 40 | find        | found       |
+      | 41 | fit         | fit         |
+      | 42 | flee        | fled        |
+      | 43 | fling       | flung       |
+      | 44 | fly         | flew        |
+      | 45 | forbid      | forbade     |
+      | 46 | forget      | forgot      |
+      | 47 | forgive     | forgave     |
+      | 48 | freeze      | froze       |
+      | 49 | get         | got         |
+      | 50 | give        | gave        |
+      | 51 | go          | went        |
+      | 52 | grow        | grew        |
+      | 53 | hang        | hung        |
+      | 54 | have        | had         |
+      | 55 | hear        | heard       |
+      | 56 | hide        | hid         |
+      | 57 | hit         | hit         |
+      | 58 | hold        | held        |
+      | 59 | hurt        | hurt        |
+      | 60 | keep        | kept        |
+      | 61 | kneel       | knelt       |
+      | 62 | know        | knew        |
+      | 63 | lay         | laid        |
+      | 64 | lead        | led         |
+      | 65 | lean        | leant/leaned|
+      | 66 | leap        | leapt/leaped|
+      | 67 | leave       | left        |
+      | 68 | lend        | lent        |
+      | 69 | let         | let         |
+      | 70 | lie (recline)| lay        |
+      | 71 | light       | lit/lighted |
+      | 72 | lose        | lost        |
+      | 73 | make        | made        |
+      | 74 | mean        | meant       |
+      | 75 | meet        | met         |
+      | 76 | miss        | missed      |
+      | 77 | mistake     | mistook     |
+      | 78 | overcome    | overcame    |
+      | 79 | pay         | paid        |
+      | 80 | put         | put         |
+      | 81 | quit        | quit        |
+      | 82 | read        | read        |
+      | 83 | ride        | rode        |
+      | 84 | ring        | rang        |
+      | 85 | rise        | rose        |
+      | 86 | run         | ran         |
+      | 87 | say         | said        |
+      | 88 | see         | saw         |
+      | 89 | seek        | sought      |
+      | 90 | sell        | sold        |
+      | 91 | send        | sent        |
+      | 92 | set         | set         |
+      | 93 | sew         | sewed       |
+      | 94 | shake       | shook       |
+      | 95 | shine       | shone       |
+      | 96 | shoot       | shot        |
+      | 97 | show        | showed      |
+      | 98 | shrink      | shrank      |
+      | 99 | shut        | shut        |
+      | 100| sing        | sang        |
+
 
 ### 2.4 Suggested Practice
 - Create a list of 10 regular verbs and 10 irregular verbs. Write one sentence in the past for each.
