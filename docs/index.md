@@ -11,23 +11,28 @@ Até o final de 2024, atuei em uma squad de negócios, focado em análise de dad
 De acordo com o [Microsoft Learn](https://learn.microsoft.com/pt-br/training/career-paths/data-engineer), engenheiros de dados integram, transformam e consolidam dados de sistemas estruturados e não estruturados, criando bases sólidas para soluções de análise. 
 
 **🎯 Objetivos de Aprendizagem:**
+
 Ao longo deste estudo, pretendo dominar:
 
 **🔹 Ingestão e Processamento de Dados**
+
 - Implementar ingestão de dados com AWS Lambda e Amazon Kinesis.
 - Configurar alertas em tempo real com Amazon SNS.
 - Gerenciar segurança e controle de acesso com AWS IAM.
 
 **🔹 Armazenamento e Consulta**
+
 - Armazenar dados de forma escalável no Amazon S3.
 - Automatizar processos ETL com AWS Glue.
 - Realizar consultas eficientes com Amazon Athena.
 
 **🔹 Monitoramento e Gestão**
+
 - Monitorar pipelines de dados com Amazon CloudWatch.
 - Integrar serviços da AWS para criar soluções de análise escaláveis.
 
 **🔹 Design e Infraestrutura**
+
 - Desenhar arquiteturas de dados eficientes.
 - Implementar Infraestrutura como Código (IaC) com Terraform.
 - Adaptar scripts Terraform em uma pipeline CI/CD no GitHub Actions.
