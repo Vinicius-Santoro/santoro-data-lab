@@ -8,9 +8,6 @@ Até o final de 2024, atuei em uma squad de negócios, focado em análise de dad
 
 De acordo com o [Microsoft Learn](https://learn.microsoft.com/pt-br/training/career-paths/data-engineer), engenheiros de dados integram, transformam e consolidam dados de sistemas estruturados e não estruturados, criando bases sólidas para soluções de análise.
 
-Atualmente, atuo na **governança de todas as APIs do Itaú Unibanco**. Por isso, iniciarei meus estudos focando em conceitos de engenharia de software aplicados ao universo de APIs. Após consolidar essa base, avançarei para áreas mais específicas da engenharia de dados.
-
-
 ## **ℹ️ Informações**
 
 - Como rodar localmente:
