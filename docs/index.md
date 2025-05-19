@@ -10,7 +10,7 @@ Até o final de 2024, atuei em uma squad de negócios, focado em análise de dad
 
 De acordo com o [Microsoft Learn](https://learn.microsoft.com/pt-br/training/career-paths/data-engineer), engenheiros de dados integram, transformam e consolidam dados de sistemas estruturados e não estruturados, criando bases sólidas para soluções de análise. 
 
-## **🎯 Objetivos de Aprendizagem:**
+## **🎯 Objetivos de Aprendizagem**
 
 Ao longo deste estudo, pretendo dominar:
 
