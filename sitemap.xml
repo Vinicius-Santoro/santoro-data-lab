@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://sitename.example/</loc>
+         <lastmod>2025-05-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/00-fundamentos-de-dados/</loc>
+         <lastmod>2025-05-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/01-perguntas-de-eng-dados-aws/</loc>
+         <lastmod>2025-05-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/02-consultas-sql/</loc>
+         <lastmod>2025-05-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/Projeto%20Real%20Time%20Analytics/01-projeto-real-time-analytics/</loc>
+         <lastmod>2025-05-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/Projeto%20Real%20Time%20Analytics/02-conceitos-importantes/</loc>
+         <lastmod>2025-05-22</lastmod>
+    </url>
+</urlset>

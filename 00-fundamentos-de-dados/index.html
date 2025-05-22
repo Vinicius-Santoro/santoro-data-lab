@@ -1,0 +1,1391 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/00-fundamentos-de-dados/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../01-perguntas-de-eng-dados-aws/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Fundamentos de Dados - Santoro Data</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../styles/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fundamentos-de-dados" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Santoro Data" class="md-header__button md-logo" aria-label="Santoro Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Santoro Data
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fundamentos de Dados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Santoro Data" class="md-nav__button md-logo" aria-label="Santoro Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Santoro Data
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos de Dados
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos de Dados
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-e-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O que é Big Data?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-desafios-do-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Desafios do Big Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dados-transacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dados transacionais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-dados-informacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Dados informacionais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ingestao-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ingestão de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-processamento-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Processamento de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Processamento de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-processo-etl" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Processo ETL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-processo-elt" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Processo ELT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-historia-do-etl-e-elt" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 História do ETL e ELT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-principais-diferencas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Principais diferenças
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Quando usar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-camadas-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Camadas de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-tipos-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Tipos de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-formatos-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Formatos de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-hadoop" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Hadoop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Hadoop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-hdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 HDFS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1011-hdfs-replicacao-de-dados-no-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1.1 HDFS - Replicação de Dados no Cluster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1012-hdfs-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1.2 HDFS - Arquitetura
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-mapreduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 MapReduce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-yarn" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 YARN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-apache-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Apache Spark
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Apache Spark">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-workloads-do-apache-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Workloads do Apache Spark
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-beneficios-do-apache-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Benefícios do Apache Spark
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-apache-hadoop-vs-apache-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Apache Hadoop vs Apache Spark
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-qualidade-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Qualidade dos dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Qualidade dos dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-metricas-de-qualidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Métricas de qualidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-perguntas-de-eng-dados-aws/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Perguntas de Engenharia de Dados na AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-consultas-sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Consultas SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projeto Real Time Analytics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Projeto Real Time Analytics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Projeto%20Real%20Time%20Analytics/01-projeto-real-time-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Objetivos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Projeto%20Real%20Time%20Analytics/02-conceitos-importantes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conceitos Importantes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-e-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O que é Big Data?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-desafios-do-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Desafios do Big Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dados-transacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dados transacionais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-dados-informacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Dados informacionais
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ingestao-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ingestão de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-processamento-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Processamento de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Processamento de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-processo-etl" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Processo ETL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-processo-elt" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Processo ELT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-historia-do-etl-e-elt" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 História do ETL e ELT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-principais-diferencas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Principais diferenças
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-quando-usar" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Quando usar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-camadas-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Camadas de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-tipos-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Tipos de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-formatos-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Formatos de dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-hadoop" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Hadoop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Hadoop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-hdfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 HDFS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1011-hdfs-replicacao-de-dados-no-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1.1 HDFS - Replicação de Dados no Cluster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1012-hdfs-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1.2 HDFS - Arquitetura
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-mapreduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 MapReduce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-yarn" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 YARN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-apache-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Apache Spark
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Apache Spark">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-workloads-do-apache-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Workloads do Apache Spark
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-beneficios-do-apache-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Benefícios do Apache Spark
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-apache-hadoop-vs-apache-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 Apache Hadoop vs Apache Spark
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-qualidade-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Qualidade dos dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Qualidade dos dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-metricas-de-qualidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.1 Métricas de qualidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fundamentos-de-dados"><strong>Fundamentos de Dados</strong></h1>
+<p>Antes de iniciar os estudos práticos em engenharia de dados, como a democratização de dados com AWS Glue e Spark, é fundamental compreender os conceitos essenciais da área. Esta seção apresentará os fundamentos necessários para uma base sólida no tema.</p>
+<h2 id="1-o-que-e-big-data">1. O que é Big Data?</h2>
+<p>De acordo com o site da Oracle, Big Data é um conjunto de dados muito grandes, com uma variedade de tipos e fontes. Até o momento de escrita desse repositório, os princípios do Big Data são baseados em 5 V's:</p>
+<ul>
+<li><b>Volume:</b> as organizações coletam dados de várias fontes, tornando o volume muito grande.</li>
+<li><b>Velocidade:</b> os dados são transmitidos em alta velocidade e devem ser tratados em tempo hábil.</li>
+<li><b>Variedade:</b> os dados vêm em todos os tipos e formatos. Dados estruturados (padronizados, com os mesmos atributos para todos os valores de dados). Semi estruturados (json). Não Estruturados (documento, imagem, áudio, vídeos etc.)</li>
+<li><b>Veracidade:</b> a qualidade dos dados capturados pode variar muito, afetando a precisão das análises.</li>
+<li><b>Valor:</b> é necessário transformar os dados em valor.</li>
+</ul>
+<p><b>Referências</b></p>
+<p><a href="https://www.oracle.com/br/big-data/what-is-big-data/">O que é big data?</a><br>
+<a href="https://aws.amazon.com/pt/what-is/structured-data/#:~:text=Os%20dados%20estruturados%20t%C3%AAm%20os,evento%20e%20valor%20da%20reserva.">O que são dados estruturados?</a></p>
+<h2 id="2-desafios-do-big-data">2. Desafios do Big Data</h2>
+<p>O Big Data apresenta desafios significativos, como:</p>
+<ul>
+<li>Armazenamento e gerenciamento de grandes volumes de dados.</li>
+<li>Integração de diferentes fontes de dados.</li>
+<li>Análise de grandes conjuntos de dados para obter insights.</li>
+<li>Necessidade de fornecer suporte para ‘Fast Data’ (capacidade de processar fluxos de dados em alta velocidade e tomar decisões em tempo real).</li>
+</ul>
+<h2 id="3-dados-transacionais">3. Dados transacionais</h2>
+<p>Dados transacionais são informações capturadas de transações. Eles registram a hora da transação, o local onde ocorreu, os preços dos itens comprados, a forma de pagamento empregada, os descontos, se houver, e outras quantidades e qualidades associadas à transação. <strong>Os dados transacionais geralmente são capturados no ponto de venda.</strong></p>
+<p>O trabalho que é realizado por sistemas transacionais é normalmente conhecido com OLTP (Processamento de Transações Online). O sistema OLTP tem como objetivo principal processar as transações do banco de dados.</p>
+<p>Exemplos:</p>
+<ul>
+<li><b>OLTP:</b> processar pedidos, atualizar estoque e gerenciar contas de clientes.</li>
+</ul>
+<p><b>Referências</b></p>
+<p><a href="https://www.tibco.com/pt-br/reference-center/what-is-transactional-data">O que são dados transacionais?</a><br>
+<a href="https://aws.amazon.com/pt/compare/the-difference-between-olap-and-oltp/">Qual é a diferença entre OLAP e OLTP?</a></p>
+<h2 id="4-dados-informacionais">4. Dados informacionais</h2>
+<p>Dados informacionais possuem o objetivo de atender a necessidade da tomada de decisão e para isso se baseia em grandes volumes de dados da base transacional.</p>
+<p>Nesse caso, o histórico é essencial e necessita de muita armazenagem. E essas características são denonimadas ao sistema OLAP (Processamento Analítico Online). O objetivo principal do processamento analítico on-line (OLAP) é analisar dados agregados.</p>
+<p>Exemplos:</p>
+<ul>
+<li><b>OLAP:</b> gerar relatórios, realizar análises complexas de dados e identificar tendências.</li>
+</ul>
+<p><b>Referências</b></p>
+<p><a href="https://www.portalgsti.com.br/2017/02/modelagem-de-dados-o-que-e-e-para-que-serve-para-um-dba.html">Modelagem de Dados</a><br>
+<a href="https://aws.amazon.com/pt/compare/the-difference-between-olap-and-oltp/">Qual é a diferença entre OLAP e OLTP?</a></p>
+<h2 id="5-ingestao-de-dados">5. Ingestão de dados</h2>
+<p>A ingestão de dados é o processo de extrair dados de uma variedade de fontes e transferi-los para um local de destino onde podem ser depositados e analisados.</p>
+<p>A extração pode ser feita de planilhas, webscrapping, aplicativos internos etc. Os destinos podem ser banco de dados, data warehouses etc.</p>
+<p>A ingestão pode ser feita de duas maneiras, sendo elas:</p>
+<ul>
+<li><strong>Ingestão em tempo real (streaming):</strong> útil quando os dados são sensíveis ao tempo. Os dados são extraídos, processados ​​e armazenados assim que são gerados para a tomada de decisões em tempo real. Por exemplo, os dados adquiridos do app do Itaú deve ser monitorado continuamente para garantir a disponibilidade para o usuário.</li>
+<li><strong>Ingestão em lote (batch):</strong> os dados são movidos em intervalos agendado de forma recorrente. É utilizado para processos repetíveis. Por exemplo, relatórios que precisam ser gerados todos os dias.</li>
+</ul>
+<h2 id="6-processamento-de-dados">6. Processamento de Dados</h2>
+<p>Processamento de dados é um conjunto de atividades que visam organizar informações. Neste tópico, será abordado ETL e ELT.</p>
+<h3 id="61-processo-etl">6.1 Processo ETL</h3>
+<ol>
+<li>Extração dos dados brutos de várias fontes;</li>
+<li>Transformação dos dados;</li>
+<li>Carregamento desses dados em um banco de dados de destino.</li>
+</ol>
+<h3 id="62-processo-elt">6.2 Processo ELT</h3>
+<ol>
+<li>Extração dos dados brutos de várias fontes;</li>
+<li>Carregamento dos dados em eu estado natural em um data warehouse ou data lake;</li>
+<li>Transformação dos dados conforme necessário enquanto está no sistema de destino.</li>
+</ol>
+<p>Com o ELT, toda a limpeza, transformação e enriquecimento de dados ocorrem dentro do data warehouse. Você pode interagir e transformar os dados brutos quantas vezes forem necessárias.</p>
+<h3 id="63-historia-do-etl-e-elt">6.3 História do ETL e ELT</h3>
+<p>O ETL existe desde a década de 1970, tornando-se especialmente popular com o surgimento dos data warehouses. No entanto, <strong>os data warehouses tradicionais exigiam processos ETL personalizados para cada fonte de dados.</strong></p>
+<p>A evolução das tecnologias de nuvem mudou o que era possível. Agora, <strong>as empresas podiam armazenar dados brutos ilimitados em grande escala e analisá-los posteriormente, conforme necessário.</strong> O ELT se tornou o método moderno de integração de dados para análises eficientes.</p>
+<h3 id="64-principais-diferencas">6.4 Principais diferenças</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Descrição </th>
+            <th>ETL</th>
+            <th>ELT</th>
+        </tr>
+    </thead>
+    <tbody>
+         <tr>
+            <td align="left">Local de transformação e carga</td>
+            <td align="left">Transforma dados em um servidor de processamento secundário.</td>
+            <td align="left">Carrega dados brutos diretamente no data warehouse de destino. Uma vez lá, você pode transformar os dados sempre que precisar.</td>
+        </tr>
+        <tr>
+            <td align="left">Compatibilidade de dados</td>
+            <td align="left">Adequado para dados estruturados que você pode representar em tabelas com linhas e colunas.</td>
+            <td align="left">Lida com todos os tipos de dados, incluindo dados não estruturados.</td>
+        </tr>
+        <tr>
+            <td align="left">Velocidade</td>
+            <td align="left">Possui uma etapa adicional antes de carregar dados no destino, que é difícil de escalar e desacelera o sistema à medida que o tamanho dos dados.</td>
+            <td align="left"> O ELT é mais rápido que o ETL. Utiliza o poder de processamento e a paralelização que os data warehouses em nuvem oferecem para fornecer transformação de dados em tempo real ou quase em tempo real para análise.</td>
+        </tr>
+            <tr>
+            <td align="left">Custos</td>
+            <td align="left">Exige o envolvimento da análise desde o início. É necessário que os analistas planejem com antecedência os relatórios que desejam gerar e definam estruturas e formatação de dados. O tempo necessário para a configuração aumenta, o que aumenta os custos.</td>
+            <td align="left">Tem menos sistemas do que o ETL, pois todas as transformações ocorrem no data warehouse de destino. Com menos sistemas, há menos para manter, resultando em uma pilha de dados mais simples e menores custos de configuração.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="65-quando-usar">6.5 Quando usar</h3>
+<p>Após vermos todas as vantagens, o ETL só teria necessidade em bancos de dados antigos. Fora isso, o ELT é mais recomendado.</p>
+<p><b>Referências</b></p>
+<p><a href="https://aws.amazon.com/pt/compare/the-difference-between-etl-and-elt/">Qual é a diferença entre ETL e ELT?</a></p>
+<h2 id="7-camadas-de-dados">7. Camadas de dados</h2>
+<p>As camadas SOR (System of Record), SOT (System of Transformation) e SPEC (Specialized Processing Engines) gerenciam diferentes estágios do ciclo de vida dos dados, desde o armazenamento bruto até a transformação e o processamento especializado. Abaixo breve descrição das camadas:</p>
+<ul>
+<li><strong>Camada SOR (System of Record):</strong> Responsável pelo armazenamento inicial dos dados brutos, funcionando como a principal referência para informações ainda não processadas;</li>
+<li><strong>Camada SOT (System of Transformation):</strong> Destinada à transformação, limpeza e preparação dos dados para análise. Nessa etapa, são aplicadas regras de negócios e ajustes necessários para garantir a qualidade das informações;</li>
+<li><strong>Camada SPEC (Specialized Processing Engines):</strong> Focada em processamentos avançados ou especializados, como execução de algoritmos de machine learning, geração de novas features a partir dos dados e transformações específicas para aprofundar as análises e gerar insights.</li>
+</ul>
+<p><strong>Desenho de camadas de dados, processamento e ingestão</strong></p>
+<figure>
+  <img alt="Camadas de Dados" src="../assets/00-camadas-de-dados.png" width="800" />
+</figure>
+<p><b>Referências</b></p>
+<p><a href="https://aws.amazon.com/pt/blogs/aws-brasil/como-o-itau-reduziu-custos-de-armazenamento-no-amazon-s3/">Como o Itaú reduziu custos de armazenamento no Amazon S3</a></p>
+<h2 id="8-tipos-de-dados">8. Tipos de dados</h2>
+<p>Existem 3 tipos de dados, sendo:</p>
+<ul>
+<li><strong>Dados Estruturados:</strong> São dados organizados em tabelas, como em bancos de dados. Cada dado tem um formato específico, como números ou textos, o que facilita armazenar e acessar.</li>
+<li><strong>Dados Semi-Estruturados:</strong> São dados que têm alguma organização, mas não tão rígida como em tabelas. Exemplos são arquivos JSON e XML, que têm uma estrutura, mas não são fixos como os dados estruturados.</li>
+<li><strong>Dados Não Estruturados:</strong> São dados sem um formato organizado, como fotos, vídeos, e-mails e postagens em redes sociais. Eles são mais difíceis de analisar sem ferramentas específicas.</li>
+</ul>
+<h2 id="9-formatos-de-dados">9. Formatos de dados</h2>
+<p>Os formatos mais utilizados no cenário de democratização de dados são:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Formato</strong></th>
+<th><strong>Tipo de Armazenamento</strong></th>
+<th><strong>Estrutura</strong></th>
+<th><strong>Principais Vantagens</strong></th>
+<th><strong>Exemplos de Uso</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LZO</strong></td>
+<td>Compressão de dados</td>
+<td>Não estruturado</td>
+<td>Compressão rápida e eficiente para grandes volumes de dados.</td>
+<td>Compressão de logs e grandes datasets em Hadoop.</td>
+</tr>
+<tr>
+<td><strong>Parquet</strong></td>
+<td>Armazenamento colunar</td>
+<td>Estruturado (colunas)</td>
+<td>Leitura rápida de grandes volumes de dados, ótimo para consultas de colunas específicas.</td>
+<td>Armazenamento de dados em data lakes, Big Data.</td>
+</tr>
+<tr>
+<td><strong>ORC</strong></td>
+<td>Armazenamento colunar</td>
+<td>Estruturado (colunas)</td>
+<td>Alta compressão e performance para leitura e processamento.</td>
+<td>Armazenamento de grandes logs, análise de dados no Hive.</td>
+</tr>
+<tr>
+<td><strong>Avro</strong></td>
+<td>Serialização de dados</td>
+<td>Estruturado (linha)</td>
+<td>Compacto, eficiente para transmissão de dados em sistemas distribuídos.</td>
+<td>Arquivos de eventos e streaming de dados.</td>
+</tr>
+<tr>
+<td><strong>XML</strong></td>
+<td>Texto</td>
+<td>Hierárquico (tags)</td>
+<td>Facilita a leitura e escrita, mas mais pesado para grandes volumes de dados.</td>
+<td>Arquivos de configuração, trocas de dados entre sistemas.</td>
+</tr>
+<tr>
+<td><strong>JSON</strong></td>
+<td>Texto</td>
+<td>Estruturado (pares chave-valor)</td>
+<td>Leve, fácil de ler e escrever, amplamente usado em APIs e integração.</td>
+<td>APIs, armazenamento de configurações, respostas de serviços web.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>
+<p><strong>Compressão de Dados</strong>: Refere-se a reduzir o tamanho dos arquivos para otimizar o armazenamento ou a transferência. Em vez de armazenar um arquivo grande, você usa um algoritmo para comprimi-lo, tornando-o mais leve. <strong>Exemplo</strong>: Compactar um arquivo de log de dados (como .gz) para reduzir o espaço usado no armazenamento ou acelerar a transferência entre sistemas.</p>
+</li>
+<li>
+<p><strong>Serialização de Dados</strong>: Transformar dados estruturados em um formato que pode ser facilmente armazenado ou transmitido, como transformar um objeto ou estrutura em bytes. <strong>Exemplo</strong>: Serializar um dataframe em formato Parquet ou Avro para armazená-lo em um banco de dados ou transmitir entre sistemas distribuídos.</p>
+</li>
+</ul>
+</div>
+<h2 id="10-hadoop">10. Hadoop</h2>
+<p>De acordo com o <a href="https://hadoop.apache.org">site oficial</a> da Apache, o Hadoop é um framework que permite processamento distribuído de big data ao longo de clusters. Sua arquitetura comporta uma alta escalabilidade, permeando desde servidores individuais até milhares de máquinas, cada uma oferecendo armazenamento e poder computacional local.</p>
+<p>O Hadoop possui três elementos fundamentais para armazenar e processar de forma distribuída grandes quantidade de dados, sendo:</p>
+<ul>
+<li><strong>HDFS (Hadoop Distributed File System):</strong> sistema de armazenamento distribuído do Hadoop.</li>
+<li><strong>MapReduce:</strong> modelo de programação baseado em mappers e reducers.</li>
+<li><strong>YARN (Yet Another Resource Negotiator):</strong> gerenciador de recursos do cluster Hadoop.</li>
+</ul>
+<p>Veremos detalhadamente cada um dos três elementos.</p>
+<p><b>Referências</b></p>
+<p><a href="https://panini.hashnode.dev/hadoop-core-hdfs">Hadoop Core: HDFS</a></p>
+<h3 id="101-hdfs">10.1 HDFS</h3>
+<p>O HDFS é um sistema de arquivos construído para armazenar grandes quantidades de dados com acesso através de padrões de streaming executado em clusters de hardware commodity. Elementos desta definição:</p>
+<ul>
+<li><strong>Padrões de streaming:</strong> O HDFS segue o modelo write once, read many, onde grandes quantidades de dados são escritas uma vez e lidas várias vezes.</li>
+<li><strong>Hardware commodity:</strong> O Hadoop funciona em clusters de máquinas simples, aproveitando replicação e alta disponibilidade para reduzir custos.</li>
+</ul>
+<p>O HDFS contribui para soluções de armazenamento de grandes quantidades de dados da seguinte forma:</p>
+<p>Imagine um arquivo de texto de 50 terabytes de volume que precisa ser armazenado e posteriormente transformado em busca de novos insights dentro de uma companhia.</p>
+<p>De forma direta, este massivo conjunto de dados não pode ser comportado por HDs ou SSDs com a tecnologia existente até o momento de escrita deste repositório. Assim, na impossibilidade de armazenar grandes volumes em uma única máquina, a resposta mais objetiva possível é a utilização de múltiplas máquinas capazes de comportar, cada uma, uma parcela (ou uma partição) do arquivo de dados. <strong>Á esta organização de múltiplas máquinas dá-se o nome de cluster.</strong></p>
+<h3 id="1011-hdfs-replicacao-de-dados-no-cluster">10.1.1 HDFS - Replicação de Dados no Cluster</h3>
+<p>Uma característica interessante do HDFS são seus blocos de armazenamento de 128MB (ou 2510MB em alguns cenários) do hardware commodity e replicação de dados no cluster. Se um computador do cluster hadoop falhar, o HDFS  automaticamente irá garantir que os dados solicitados pela requisição serão retornados através de uma fonte alternativa de replicação.</p>
+<h3 id="1012-hdfs-arquitetura">10.1.2 HDFS - Arquitetura</h3>
+<p>Quando um client realiza uma requisição ao cluster Hadoop, estará eventualmente interagindo com diferentes tipos de nós do sistema que atuam em um padrão master-worker, sendo eles:</p>
+<ul>
+<li><strong>Namenodes (master):</strong> gerencia toda a árvore do sistema de armazenamento e os metadados para todos os arquivos e diretórios presentes. Os namenodes mantém um arquivo conhecido como edit log responsável por registrar informações sobre o que é criado, mantido ou alterado no cluster. Além disso, possuem informações de todos os datanodes do sistema.</li>
+<li><strong>Datanodes (worker):</strong> atuam como os verdadeiros trabalhadores do cluster. São eles quem armazenam os dados em blocos e retornam, sempre que solicitados, informações para o namenode para que este saiba exatamente a localização dos arquivos.</li>
+</ul>
+<p><b>Referências</b></p>
+<p><a href="https://panini.hashnode.dev/hadoop-core-hdfs">Hadoop Core: HDFS</a></p>
+<h3 id="102-mapreduce">10.2 MapReduce</h3>
+<p>MapReduce é um modelo de programação desenhado para processar grandes volumes de dados em paralelo, dividindo o trabalho em múltiplos processadores em um cluster de computadores.</p>
+<p>Quando a escala dos dados beira os Petabytes, cenário comum em Big Data, o tempo de processamento com um HDD ou SSD é insuficiente para comportar as necessidades do mundo moderno e é por isso que existe o MapReduce.</p>
+<p>Basicamente, o MapReduce possui 5 etapas, sendo elas:</p>
+<ul>
+<li><strong>Input Data:</strong> dados que serão utilizados para o MapReduce.</li>
+<li><strong>Split Data:</strong> dados são divididos.</li>
+<li><strong>Map:</strong> etapa onde cada task recebe uma porção de dados, ou seja, o conjunto de dados está armazenado de maneira distribuída em diferentes blocos e em diferentes nós em um cluster de computadores.</li>
+<li><strong>Shuffle and Sort:</strong> etapa onde os dados são unificados em cada nó do cluster de modo a criar um input facilitado para a subsequente tarefa de reduce.</li>
+<li><strong>Reduce:</strong> etapa onde são executadas as agregações e sumarizações dos dados, tendo seus resultados unificados para proporcionar uma sáida final.</li>
+</ul>
+<!-- <img align="center" src="../images/map_reduce.png" widht="250"/> -->
+
+<pre class="mermaid"><code>graph LR
+  A[Input Data] --&gt;|Map| B[Mapper 1]
+  A --&gt;|Map| C[Mapper 2]
+  A --&gt;|Map| D[Mapper 3]
+
+  B --&gt;|Shuffle &amp; Sort| E[Reducer 1]
+  C --&gt;|Shuffle &amp; Sort| E
+  D --&gt;|Shuffle &amp; Sort| E
+
+  E --&gt;|Final Output| F[Result Data]</code></pre>
+<p><b>Referências</b></p>
+<p><a href="https://panini.hashnode.dev/hadoop-core-mapreduce">MapReduce</a></p>
+<h3 id="103-yarn">10.3 YARN</h3>
+<p>O YARN é o sistema que gerencia os recursos no cluster de computadores, decidindo quem executa as tarefas, quando as mesmas serão executadas, quais nós estão disponíveis para receber demandas e quais estão totalmente ocupados. O YARN é como o coração que permite o funcionamento do cluster.</p>
+<p><b>Referências</b></p>
+<p><a href="https://panini.hashnode.dev/hadoop-core-yarn">Yarn</a></p>
+<h2 id="11-apache-spark">11. Apache Spark</h2>
+<p>O Spark é um sistema de processamento distribuído de big data que foi criado para resolver as limitações do MapReduce. Antes do Spark, cada etapa exigia uma leitura e gravação no disco, tornado mais lento, devido à latência da E/S do disco. Já no Spark, o processamento é feito na <strong>memória</strong>, reduzindo o número de etapas em uma tarefa e reutilizando dados em várias operações paralelas.</p>
+<h3 id="111-workloads-do-apache-spark">11.1 Workloads do Apache Spark</h3>
+<ul>
+<li><strong>Spark Core:</strong> base para a plataforma.</li>
+<li><strong>Spark SQL:</strong> consultas interativas.</li>
+<li><strong>Spark Streaming:</strong> análises em tempo real.</li>
+<li><strong>Spark MLlib:</strong> para machine learning.</li>
+<li><strong>Spark GraphX:</strong> processamento de gráficos.</li>
+</ul>
+<p><b>Referências</b></p>
+<p><a href="https://aws.amazon.com/pt/what-is/apache-spark/">O que é Apache Spark?</a></p>
+<h3 id="112-beneficios-do-apache-spark">11.2 Benefícios do Apache Spark</h3>
+<ul>
+<li><strong>Rápido:</strong> por meio do armazenamento em cache na memória.</li>
+<li><strong>Para desenvolvedores:</strong> sustenta de modo nativo Java, Scala, R e Python, oferecendo a você várias linguagens para a criação de aplicativos.</li>
+</ul>
+<h3 id="113-apache-hadoop-vs-apache-spark">11.3 Apache Hadoop vs Apache Spark</h3>
+<p>O Hadoop possui o HDFS para armazenamento e YARN para gerenciar recusos de computação.</p>
+<p>O Spark não possui sistema próprio de armazenamento, mas pode consultar no HDFS, Redshift, S3 etc.</p>
+<h2 id="12-qualidade-dos-dados">12. Qualidade dos dados</h2>
+<p>Qualidade de Dados (Data Quality, em inglês) é uma avaliação da precisão, completude, consistência, confiabilidade e atualidade dos dados. Em outras palavras, refere-se ao grau de excelência dos dados</p>
+<h3 id="121-metricas-de-qualidade">12.1 Métricas de qualidade</h3>
+<p><strong>1. Completude:</strong> Isso se refere a se todos os dados necessários estão disponíveis. Se houver campos obrigatórios ausentes em um conjunto de dados, ele não será considerado completo.</p>
+<p><strong>2. Consistência:</strong> Os dados precisam ser consistentes, o que significa que não devem existir discrepâncias quando comparados entre diferentes conjuntos de dados ou diferentes partes do mesmo conjunto de dados.</p>
+<p><strong>3. Conformidade:</strong> Isso se refere ao grau em que os dados aderem a padrões especificados, convenções e regras de negócios. Por exemplo, um número de telefone deve estar em um formato válido.</p>
+<p><strong>4. Integridade:</strong> Isso se refere à validade e consistência de relacionamentos entre entidades e registros de dados, como referências cruzadas entre tabelas em um banco de dados relacional.</p>
+<p><strong>5. Precisão:</strong> Isso se refere ao grau em que os dados representam a realidade ou a verdade. A precisão pode ser difícil de medir, pois requer um ponto de referência verdadeiro.</p>
+<p><strong>6. Atualidade:</strong> Isso se refere à relevância dos dados no tempo. Isso pode variar dependendo do contexto; por exemplo, dados de vendas de um dia atrás podem ser considerados atuais para algumas empresas, enquanto para outras empresas esses dados podem ser considerados desatualizados.</p>
+<p><b>Referências</b></p>
+<p><a href="https://blog.dsacademy.com.br/as-6-dimensoes-da-qualidade-de-dados-data-quality/">As 6 Dimensões da Qualidade de Dados (Data Quality)</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../01-perguntas-de-eng-dados-aws/" class="md-footer__link md-footer__link--next" aria-label="Next: Perguntas de Engenharia de Dados na AWS">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Perguntas de Engenharia de Dados na AWS
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Vinicius Naziozeno Santoro do Rio
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

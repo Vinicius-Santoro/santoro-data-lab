@@ -1,0 +1,1375 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/01-perguntas-de-eng-dados-aws/">
+      
+      
+        <link rel="prev" href="../00-fundamentos-de-dados/">
+      
+      
+        <link rel="next" href="../02-consultas-sql/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Perguntas de Engenharia de Dados na AWS - Santoro Data</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../styles/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#perguntas-de-engenharia-de-dados-na-aws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Santoro Data" class="md-header__button md-logo" aria-label="Santoro Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Santoro Data
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Perguntas de Engenharia de Dados na AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Santoro Data" class="md-nav__button md-logo" aria-label="Santoro Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Santoro Data
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-fundamentos-de-dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fundamentos de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Perguntas de Engenharia de Dados na AWS
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Perguntas de Engenharia de Dados na AWS
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-conceitos-fundamentais-de-engenharia-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Conceitos Fundamentais de Engenharia de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Conceitos Fundamentais de Engenharia de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-como-voce-lidaria-com-dados-em-tempo-real-vs-dados-em-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Como você lidaria com dados em tempo real vs. dados em batch?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-qual-a-diferenca-do-amazon-rds-para-amazon-redshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Qual a diferença do Amazon RDS para Amazon Redshift?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cloud-computing-na-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Cloud Computing na AWS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cloud Computing na AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-quais-sao-os-principais-servicos-da-aws-para-engenharia-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Quais são os principais serviços da AWS para engenharia de dados?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-quais-sao-as-diferencas-entre-o-aws-glue-e-o-amazon-emr-na-aws-para-processamento-de-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Quais são as diferenças entre o AWS Glue e o Amazon EMR na AWS para processamento de big data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-como-voce-garantiria-a-seguranca-dos-dados-armazenados-no-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Como você garantiria a segurança dos dados armazenados no S3?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-como-voce-configuraria-um-pipeline-de-ingestao-de-dados-usando-glue-e-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Como você configuraria um pipeline de ingestão de dados usando Glue e S3?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-design-e-arquitetura-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Design e Arquitetura de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Design e Arquitetura de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-como-voce-projetaria-uma-solucao-de-ingestao-de-dados-escalavel-na-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Como você projetaria uma solução de ingestão de dados escalável na AWS?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-como-voce-projetaria-uma-arquitetura-para-processar-dados-em-tempo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Como você projetaria uma arquitetura para processar dados em tempo real?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-quais-sao-as-boas-praticas-para-particionar-e-organizar-dados-em-um-data-lake-no-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Quais são as boas práticas para particionar e organizar dados em um data lake no S3?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-performance-e-otimizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Performance e Otimização
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Performance e Otimização">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-como-otimizar-uma-consulta-no-redshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Como otimizar uma consulta no Redshift?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-como-melhorar-o-desempenho-de-uma-pipeline-de-etl-no-glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Como melhorar o desempenho de uma pipeline de ETL no Glue?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-o-que-e-particionamento-de-dados-e-como-ele-ajuda-no-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 O que é particionamento de dados e como ele ajuda no desempenho?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-monitoramento-e-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Monitoramento e Segurança
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Monitoramento e Segurança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-como-voce-configuraria-politicas-de-acesso-para-proteger-seus-dados-no-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Como você configuraria políticas de acesso para proteger seus dados no S3?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-quais-sao-as-melhores-praticas-para-monitorar-uma-pipeline-de-dados-na-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Quais são as melhores práticas para monitorar uma pipeline de dados na AWS?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-como-voce-implementaria-controle-de-versao-em-uma-pipeline-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Como você implementaria controle de versão em uma pipeline de dados?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-perguntas-praticas-e-situacoes-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Perguntas Práticas e Situações de Problemas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Perguntas Práticas e Situações de Problemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-como-voce-identificaria-e-corrigiria-falhas-em-uma-pipeline-de-dados-em-producao" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Como você identificaria e corrigiria falhas em uma pipeline de dados em produção?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-consultas-sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Consultas SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projeto Real Time Analytics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Projeto Real Time Analytics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Projeto%20Real%20Time%20Analytics/01-projeto-real-time-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Objetivos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Projeto%20Real%20Time%20Analytics/02-conceitos-importantes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conceitos Importantes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-conceitos-fundamentais-de-engenharia-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Conceitos Fundamentais de Engenharia de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Conceitos Fundamentais de Engenharia de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-como-voce-lidaria-com-dados-em-tempo-real-vs-dados-em-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Como você lidaria com dados em tempo real vs. dados em batch?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-qual-a-diferenca-do-amazon-rds-para-amazon-redshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Qual a diferença do Amazon RDS para Amazon Redshift?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cloud-computing-na-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Cloud Computing na AWS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cloud Computing na AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-quais-sao-os-principais-servicos-da-aws-para-engenharia-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Quais são os principais serviços da AWS para engenharia de dados?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-quais-sao-as-diferencas-entre-o-aws-glue-e-o-amazon-emr-na-aws-para-processamento-de-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Quais são as diferenças entre o AWS Glue e o Amazon EMR na AWS para processamento de big data?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-como-voce-garantiria-a-seguranca-dos-dados-armazenados-no-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Como você garantiria a segurança dos dados armazenados no S3?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-como-voce-configuraria-um-pipeline-de-ingestao-de-dados-usando-glue-e-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Como você configuraria um pipeline de ingestão de dados usando Glue e S3?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-design-e-arquitetura-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Design e Arquitetura de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Design e Arquitetura de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-como-voce-projetaria-uma-solucao-de-ingestao-de-dados-escalavel-na-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Como você projetaria uma solução de ingestão de dados escalável na AWS?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-como-voce-projetaria-uma-arquitetura-para-processar-dados-em-tempo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Como você projetaria uma arquitetura para processar dados em tempo real?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-quais-sao-as-boas-praticas-para-particionar-e-organizar-dados-em-um-data-lake-no-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Quais são as boas práticas para particionar e organizar dados em um data lake no S3?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-performance-e-otimizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Performance e Otimização
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Performance e Otimização">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-como-otimizar-uma-consulta-no-redshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Como otimizar uma consulta no Redshift?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-como-melhorar-o-desempenho-de-uma-pipeline-de-etl-no-glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Como melhorar o desempenho de uma pipeline de ETL no Glue?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-o-que-e-particionamento-de-dados-e-como-ele-ajuda-no-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 O que é particionamento de dados e como ele ajuda no desempenho?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-monitoramento-e-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Monitoramento e Segurança
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Monitoramento e Segurança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-como-voce-configuraria-politicas-de-acesso-para-proteger-seus-dados-no-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Como você configuraria políticas de acesso para proteger seus dados no S3?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-quais-sao-as-melhores-praticas-para-monitorar-uma-pipeline-de-dados-na-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Quais são as melhores práticas para monitorar uma pipeline de dados na AWS?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-como-voce-implementaria-controle-de-versao-em-uma-pipeline-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Como você implementaria controle de versão em uma pipeline de dados?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-perguntas-praticas-e-situacoes-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Perguntas Práticas e Situações de Problemas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Perguntas Práticas e Situações de Problemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-como-voce-identificaria-e-corrigiria-falhas-em-uma-pipeline-de-dados-em-producao" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Como você identificaria e corrigiria falhas em uma pipeline de dados em produção?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="perguntas-de-engenharia-de-dados-na-aws"><strong>Perguntas de Engenharia de Dados na AWS</strong></h1>
+<h2 id="1-conceitos-fundamentais-de-engenharia-de-dados"><strong>1. Conceitos Fundamentais de Engenharia de Dados</strong></h2>
+<h3 id="11-como-voce-lidaria-com-dados-em-tempo-real-vs-dados-em-batch"><strong>1.1 Como você lidaria com dados em tempo real vs. dados em batch?</strong></h3>
+<p><span class="texto-verde"><strong>Dados em Tempo Real</strong></span></span></p>
+<p>Esses dados são processados à medida que chegam, com baixa latência. Para isso, na AWS, podemos usar:</p>
+<ul>
+<li><strong>Amazon Kinesis Data Streams:</strong> Para coletar e processar grandes fluxos de dados em tempo real, como logs de eventos de aplicativos ou transações financeiras.</li>
+<li><strong>AWS Lambda:</strong> Para processamento serverless de eventos em tempo real, ideal para transformar dados conforme eles chegam.</li>
+<li><strong>Amazon DynamoDB Streams:</strong> Para capturar mudanças em uma tabela do DynamoDB em tempo real e processá-las automaticamente.</li>
+</ul>
+<p>Exemplo: gitsync e apisybc.</p>
+<p><span class="texto-verde"><strong>Dados em Batch</strong></span></p>
+<p>Esses dados são processados em intervalos de tempo específicos. Na AWS, os principais serviços são:</p>
+<ul>
+<li><strong>Amazon S3 + AWS Glue</strong>: Para armazenar grandes volumes de dados e preparar (ETL) esses dados para análise.</li>
+<li><strong>Amazon EMR (Elastic MapReduce)</strong>: Para processar grandes volumes de dados usando frameworks como Apache Spark ou Hadoop.</li>
+<li><strong>Amazon Athena</strong>: Para consultar diretamente dados armazenados no S3, sem necessidade de configuração de servidor.</li>
+<li><strong>Amazon RDS/Aurora</strong>: Para processar e analisar dados armazenados em bancos de dados relacionais em horários específicos.</li>
+<li><strong>AWS Batch</strong>: Para gerenciar e escalar automaticamente jobs em batch.</li>
+</ul>
+<p>Exemplo prático: Em uma empresa de análise de marketing, você pode armazenar todos os dados de campanhas publicitárias em Amazon S3, usar o AWS Glue para transformar esses dados e o Amazon Athena para gerar relatórios diários de performance.</p>
+<h3 id="12-qual-a-diferenca-do-amazon-rds-para-amazon-redshift"><strong>1.2 Qual a diferença do Amazon RDS para Amazon Redshift?</strong></h3>
+<p><span class="texto-verde"><strong>Amazon RDS</strong></span></p>
+<ul>
+<li><strong>Tipo:</strong> Banco de dados relacional gerenciado.</li>
+<li><strong>Uso:</strong> Otimizado para transações OLTP (Online Transaction Processing).</li>
+<li><strong>Exemplos de Bancos Suportados:</strong> MySQL, PostgreSQL, MariaDB, SQL Server, Oracle e Amazon Aurora.</li>
+<li><strong>Casos de Uso:</strong> Aplicações web, sistemas de gestão empresarial, aplicativos móveis, e-commerce.</li>
+</ul>
+<p><span class="texto-verde"><strong>Amazon Redshift</strong></span></p>
+<ul>
+<li><strong>Tipo:</strong> Data Warehouse gerenciado.</li>
+<li><strong>Uso:</strong> Otimizado para consultas analíticas (OLAP - Online Analytical Processing).</li>
+<li><strong>Armazenamento:</strong> Baseado em colunas, ideal para grandes volumes de dados.</li>
+<li><strong>Casos de Uso:</strong> Análise de dados em larga escala, relatórios de BI (Business Intelligence).</li>
+</ul>
+<h2 id="2-cloud-computing-na-aws">2. Cloud Computing na AWS</h2>
+<h3 id="21-quais-sao-os-principais-servicos-da-aws-para-engenharia-de-dados"><strong>2.1 Quais são os principais serviços da AWS para engenharia de dados?</strong></h3>
+<ul>
+<li><strong>Amazon S3:</strong> Armazenamento escalável de objetos.</li>
+<li><strong>AWS Glue:</strong> Serviço de ETL gerenciado.</li>
+<li><strong>Amazon Redshift:</strong> Data warehouse em nuvem.</li>
+<li><strong>Amazon Athena:</strong> Consulta de dados em S3 usando SQL.</li>
+<li><strong>Amazon EMR:</strong> Cluster gerenciado para Big Data.</li>
+<li><strong>Amazon Kinesis:</strong> Ingestão e processamento de dados em tempo real.</li>
+<li><strong>AWS Lambda:</strong> Execução de código sem servidor.</li>
+</ul>
+<h3 id="22-quais-sao-as-diferencas-entre-o-aws-glue-e-o-amazon-emr-na-aws-para-processamento-de-big-data"><strong>2.2 Quais são as diferenças entre o AWS Glue e o Amazon EMR na AWS para processamento de big data?</strong></h3>
+<p>Tanto o <strong>AWS Glue</strong> quanto o <strong>Amazon EMR (Elastic MapReduce)</strong> são serviços da AWS para <strong>processamento de big data</strong>, mas eles possuem características e casos de uso específicos.</p>
+<p><span class="texto-verde"><strong>AWS Glue</strong></span></p>
+<ul>
+<li><strong>Tipo:</strong> Serviço de ETL (Extract, Transform, Load) totalmente gerenciado.</li>
+<li><strong>Interface:</strong> Baseada em servidorless, sem necessidade de gerenciamento de infraestrutura.</li>
+<li><strong>Casos de Uso:</strong> Transformação de dados, preparação de dados para análise, integração com Amazon S3 e Amazon Athena.</li>
+<li><strong>Linguagem Suportada:</strong> PySpark (Python + Spark) e Scala.</li>
+<li>
+<p><strong>Principais Funcionalidades:</strong></p>
+</li>
+<li>
+<p>Glue Data Catalog para metadados e esquema dos dados.</p>
+</li>
+<li>Glue Studio com interface gráfica para criar pipelines ETL.</li>
+<li>Glue Crawlers para descoberta automática de esquemas de dados.</li>
+<li><strong>Escalabilidade:</strong> Automática (você não gerencia nós).</li>
+<li><strong>Modelo de Custo:</strong> Paga-se por segundo de execução.</li>
+</ul>
+<p><strong>Exemplo Prático:</strong> Você precisa transformar arquivos JSON armazenados no Amazon S3 em tabelas Parquet otimizadas para consulta com Amazon Athena.</p>
+<p><span class="texto-verde"><strong>Amazon EMR (Elastic MapReduce)</strong></span></p>
+<ul>
+<li><strong>Tipo:</strong> Cluster gerenciado para frameworks de big data (Hadoop, Spark, Presto, HBase, Flink, e mais).</li>
+<li><strong>Interface:</strong> Controle completo do cluster (EC2 gerenciado) e configuração personalizada.</li>
+<li><strong>Casos de Uso:</strong> Processamento intensivo de big data, machine learning distribuído, análise de logs, e pipelines de dados complexos.</li>
+<li><strong>Linguagem Suportada:</strong> Python (Spark), Scala, Java, SQL, R, e mais, dependendo do framework.</li>
+<li>
+<p><strong>Principais Funcionalidades:</strong></p>
+</li>
+<li>
+<p>Suporte para múltiplos frameworks (Hadoop, Spark, Presto, etc.).</p>
+</li>
+<li>Controle total sobre o hardware (tipo de instância, número de nós, configuração de memória/CPU).</li>
+<li>Suporte para workloads altamente personalizadas.</li>
+<li><strong>Escalabilidade:</strong> Manual ou automática (Auto Scaling).</li>
+<li><strong>Modelo de Custo:</strong> Paga-se por instância EC2 e armazenamento associado.</li>
+</ul>
+<p><strong>Exemplo Prático:</strong> Você precisa treinar um modelo de machine learning em Spark MLlib com um cluster de 100 nós para análise de logs de servidores.</p>
+<p><span class="texto-verde"><strong>Quando usar cada um?</strong></span></p>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th><strong>AWS Glue</strong></th>
+<th><strong>Amazon EMR</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Simplicidade</strong></td>
+<td>Simples, serverless.</td>
+<td>Complexo, com controle total do cluster.</td>
+</tr>
+<tr>
+<td><strong>Custo</strong></td>
+<td>Custo controlado (serverless).</td>
+<td>Pode ser mais caro (depende do tamanho do cluster).</td>
+</tr>
+<tr>
+<td><strong>Flexibilidade</strong></td>
+<td>Limitado a ETL (Spark, Scala, Python).</td>
+<td>Altamente flexível (vários frameworks).</td>
+</tr>
+<tr>
+<td><strong>Casos de Uso</strong></td>
+<td>ETL, preparação de dados, integração com S3/Athena.</td>
+<td>Processamento de big data, machine learning, pipelines complexos.</td>
+</tr>
+<tr>
+<td><strong>Gerenciamento</strong></td>
+<td>Automático (serverless).</td>
+<td>Manual (você gerencia os nós).</td>
+</tr>
+<tr>
+<td><strong>Escalabilidade</strong></td>
+<td>Automática.</td>
+<td>Manual ou automática (Auto Scaling).</td>
+</tr>
+</tbody>
+</table>
+<p><span class="texto-verde"><strong>Como escolher?</strong></span></p>
+<ul>
+<li>Use <strong>AWS Glue</strong> se você precisa de uma solução de ETL fácil de configurar e gerenciada para transformar e preparar dados.</li>
+<li>Use <strong>Amazon EMR</strong> se você precisa de controle total sobre o cluster e suporte para frameworks adicionais (como Hadoop, Spark MLlib, Presto).</li>
+</ul>
+<h3 id="23-como-voce-garantiria-a-seguranca-dos-dados-armazenados-no-s3"><strong>2.3 Como você garantiria a segurança dos dados armazenados no S3?</strong></h3>
+<p>Para garantir a segurança dos dados armazenados no Amazon S3, podemos adotar as seguintes práticas:</p>
+<p><span class="texto-verde"><strong>Controle de Acesso</strong></span></p>
+<ul>
+<li><strong>Políticas do IAM:</strong> Use políticas de controle de acesso refinadas para usuários e grupos.</li>
+<li><strong>Bucket Policies:</strong> Defina políticas específicas de acesso ao bucket, limitando quem pode visualizar ou modificar os dados.</li>
+<li><strong>Access Control Lists (ACLs):</strong> Configure permissões em nível de objeto, se necessário.</li>
+</ul>
+<p><span class="texto-verde"><strong>Criptografia</strong></span></p>
+<ul>
+<li><strong>Criptografia em repouso:</strong> Habilite a criptografia automática com AWS Key Management Service (KMS) ou chaves gerenciadas pelo S3 (SSE-S3).</li>
+<li><strong>Criptografia em trânsito:</strong> Use HTTPS (TLS) para transferir dados de forma segura.</li>
+</ul>
+<p><span class="texto-verde"><strong>Monitoramento e Auditoria</strong></span></p>
+<ul>
+<li><strong>Amazon CloudTrail:</strong> Ative o CloudTrail para registrar todas as ações realizadas no S3, garantindo rastreabilidade.</li>
+<li><strong>Amazon Macie:</strong> Identifique dados confidenciais e receba alertas sobre possíveis exposições.</li>
+<li><strong>S3 Access Logs:</strong> Habilite o registro de acessos para analisar quem acessou o bucket.</li>
+</ul>
+<p><span class="texto-verde"><strong>Proteção Contra Exclusão</strong></span></p>
+<ul>
+<li><strong>Versionamento:</strong> Ative o versionamento para manter cópias antigas dos objetos.</li>
+<li><strong>Bloqueio de Objetos:</strong> Use o S3 Object Lock para proteger objetos contra exclusão acidental.</li>
+<li><strong>MFA Delete:</strong> Exija autenticação multifator para exclusão de objetos críticos.</li>
+</ul>
+<p><span class="texto-verde"><strong>Melhores Práticas Adicionais</strong></span></p>
+<ul>
+<li><strong>Princípio de Menor Privilégio:</strong> Conceda apenas as permissões necessárias para cada usuário.</li>
+<li><strong>Segregação de Buckets:</strong> Mantenha dados sensíveis e públicos em buckets separados.</li>
+<li><strong>Avaliação Regular:</strong> Realize auditorias periódicas para garantir que as permissões estão configuradas corretamente.</li>
+</ul>
+<h3 id="24-como-voce-configuraria-um-pipeline-de-ingestao-de-dados-usando-glue-e-s3"><strong>2.4 Como você configuraria um pipeline de ingestão de dados usando Glue e S3?</strong></h3>
+<ul>
+<li>Configuraria uma tarefa do Glue para extrair dados de uma fonte (como RDS), transformá-los e carregá-los no S3.</li>
+<li>Definiria gatilhos para automação (horário, eventos S3).</li>
+</ul>
+<h2 id="3-design-e-arquitetura-de-dados">3. Design e Arquitetura de Dados</h2>
+<h3 id="31-como-voce-projetaria-uma-solucao-de-ingestao-de-dados-escalavel-na-aws"><strong>3.1 Como você projetaria uma solução de ingestão de dados escalável na AWS?</strong></h3>
+<ul>
+<li>Utilizaria Amazon S3 para armazenamento bruto.</li>
+<li>AWS Glue para transformação de dados.</li>
+<li>Amazon Kinesis para ingestão em tempo real.</li>
+</ul>
+<h3 id="32-como-voce-projetaria-uma-arquitetura-para-processar-dados-em-tempo-real"><strong>3.2 Como você projetaria uma arquitetura para processar dados em tempo real?</strong></h3>
+<ul>
+<li>Utilizaria Amazon Kinesis para ingestão.</li>
+<li>AWS Lambda para processamento em tempo real.</li>
+<li>Amazon DynamoDB ou S3 para armazenamento.</li>
+</ul>
+<h3 id="33-quais-sao-as-boas-praticas-para-particionar-e-organizar-dados-em-um-data-lake-no-s3"><strong>3.3 Quais são as boas práticas para particionar e organizar dados em um data lake no S3?</strong></h3>
+<ul>
+<li>Usar prefixos de partição (por exemplo, ano/mês/dia).</li>
+<li>Definir políticas de ciclo de vida para arquivamento.</li>
+<li>Manter uma estrutura de pasta padronizada.</li>
+</ul>
+<h2 id="4-performance-e-otimizacao">4. Performance e Otimização</h2>
+<h3 id="41-como-otimizar-uma-consulta-no-redshift"><strong>4.1 Como otimizar uma consulta no Redshift?</strong></h3>
+<ul>
+<li>Uso de sort keys e distribution keys.</li>
+<li>Compressão de colunas.</li>
+<li>Materialized views.</li>
+</ul>
+<p><span class="texto-verde"><strong>O que são Sort Keys e Distribution Keys?</strong></span></p>
+<ul>
+<li>
+<p><strong>Sort Keys:</strong> Colunas usadas para ordenar os dados fisicamente na tabela, otimizando a velocidade de leitura para consultas frequentes que filtram ou ordenam por essas colunas.</p>
+</li>
+<li>
+<p><strong>Exemplo:</strong> Se você usar uma coluna <code>anomesdia</code> como sort key e ordená-la de forma crescente, o Redshift organizará os dados fisicamente nessa ordem. Consultas filtrando por datas específicas serão muito mais rápidas, pois o Redshift lerá diretamente o intervalo necessário.</p>
+</li>
+<li>
+<p><strong>Distribution Keys:</strong> Definem como os dados são distribuídos entre os nós do cluster Redshift, garantindo que consultas sejam mais eficientes, minimizando o movimento de dados entre nós.</p>
+</li>
+</ul>
+<p><span class="texto-verde"><strong>O que é Compressão de Colunas?</strong></span></p>
+<p>É a aplicação de algoritmos de compressão (como LZO, ZSTD) nas colunas da tabela, reduzindo o espaço de armazenamento e acelerando a leitura dos dados. Existem dois tipos principais.</p>
+<p><span class="texto-verde"><strong>Compressão sem perda (Lossless Compression):</strong></span></p>
+<ul>
+<li>Não perde nenhum dado durante a compressã</li>
+<li>Ideal para dados críticos (textos, códigos, tabelas).</li>
+<li>Exemplo: Algoritmo LZO (Lempel-Ziv-Oberhumer) e ZSTD (Zstandard), muito usados em bancos de dados como Redshift.</li>
+</ul>
+<p><span class="texto-verde"><strong>Como Funciona:</strong></span></p>
+<ul>
+<li>Identifica padrões repetidos nos dados.</li>
+<li>Substitui padrões por referências menores.</li>
+<li>Ao descomprimir, restaura os dados originais exatamente como eram.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Exemplo</p>
+<p><strong>Dados Originais:</strong> AAAAAABBBCCCCCC</p>
+<p><strong>Após Compressão:</strong> A6B3C6</p>
+</div>
+<p><span class="texto-verde"><strong>Compressão com perda (Lossy Compression):</strong></span></p>
+<ul>
+<li>Perde alguns dados durante a compressão.</li>
+<li>Usada em imagens, vídeos e áudio (onde uma pequena perda de qualidade é aceitável).</li>
+<li>Exemplo: JPEG (imagens), MP3 (áudio).</li>
+</ul>
+<p><span class="texto-verde"><strong>O que são Materialized Views?</strong></span></p>
+<ul>
+<li>São visualizações que armazenam os resultados de uma consulta em cache, permitindo acesso mais rápido aos dados processados, pois evitam a necessidade de reexecutar a consulta toda vez.</li>
+</ul>
+<h3 id="42-como-melhorar-o-desempenho-de-uma-pipeline-de-etl-no-glue"><strong>4.2 Como melhorar o desempenho de uma pipeline de ETL no Glue?</strong></h3>
+<ul>
+<li>Utilizando "pushdown predicate" para filtrar dados.</li>
+<li>Habilitando a opção de paralelismo dinâmico.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">pushdown predicate</p>
+<p><strong>Pushdown Predicate</strong> é uma técnica de otimização em pipelines de ETL que pode ser aplicado no Glue. Em vez de carregar todos os dados para processamento e aplicar filtros depois, o Pushdown Predicate aplica os filtros diretamente na fonte de dados. Isso reduz a quantidade de dados transferidos e processados, acelerando o ETL.</p>
+<p>O filtro sempre é feito, mas:</p>
+<ul>
+<li>
+<p><span class="texto-vermelho"><strong>Sem pushdown</strong></span>, o Glue poderia ler todos os dados da fonte e só depois aplicar o filtro, o que é custoso.</p>
+</li>
+<li>
+<p><span class="texto-verde"><strong>Com pushdown</strong></span>, o filtro é “empurrado para baixo” até a fonte, ou seja, o banco de dados (ou sistema de arquivos) já retorna apenas os </span>dados filtrados.</p>
+</li>
+</ul>
+</div>
+<h3 id="43-o-que-e-particionamento-de-dados-e-como-ele-ajuda-no-desempenho"><strong>4.3 O que é particionamento de dados e como ele ajuda no desempenho?</strong></h3>
+<ul>
+<li>Particionamento é a divisão dos dados em segmentos menores.</li>
+<li>Melhora o desempenho de consultas ao permitir leitura seletiva.</li>
+</ul>
+<h2 id="5-monitoramento-e-seguranca">5. Monitoramento e Segurança</h2>
+<h3 id="51-como-voce-configuraria-politicas-de-acesso-para-proteger-seus-dados-no-s3"><strong>5.1 Como você configuraria políticas de acesso para proteger seus dados no S3?</strong></h3>
+<ul>
+<li>Usando políticas de bucket e políticas de IAM.</li>
+<li>Ativando o bloqueio de acesso público.</li>
+</ul>
+<h3 id="52-quais-sao-as-melhores-praticas-para-monitorar-uma-pipeline-de-dados-na-aws"><strong>5.2 Quais são as melhores práticas para monitorar uma pipeline de dados na AWS?</strong></h3>
+<ul>
+<li>Usando Amazon CloudWatch para métricas e alarmes.</li>
+<li>Habilitando o logging detalhado no Glue.</li>
+</ul>
+<h3 id="53-como-voce-implementaria-controle-de-versao-em-uma-pipeline-de-dados"><strong>5.3 Como você implementaria controle de versão em uma pipeline de dados?</strong></h3>
+<ul>
+<li>Usando versionamento em S3.</li>
+<li>Gerenciando versões de código com Git.</li>
+</ul>
+<h2 id="6-perguntas-praticas-e-situacoes-de-problemas">6. Perguntas Práticas e Situações de Problemas</h2>
+<h3 id="61-como-voce-identificaria-e-corrigiria-falhas-em-uma-pipeline-de-dados-em-producao"><strong>6.1 Como você identificaria e corrigiria falhas em uma pipeline de dados em produção?</strong></h3>
+<p><span class="texto-verde"><strong>Identificação de Falhas</strong></span></p>
+<p><strong>Monitoramento Contínuo:</strong></p>
+<ul>
+<li>Use <strong>Amazon CloudWatch</strong> para monitorar métricas e criar alarmes que notificam quando há falhas, lentidão ou comportamentos anormais na pipeline.</li>
+<li>Habilite logs detalhados nos serviços envolvidos (por exemplo, logs do AWS Glue, AWS Lambda, Kinesis, etc.).</li>
+<li>Utilize dashboards para visualizar o status da pipeline em tempo real.</li>
+</ul>
+<p><strong>Alertas e Notificações:</strong></p>
+<ul>
+<li>Configure alertas via SNS (Simple Notification Service) ou outras ferramentas para receber notificações imediatas sobre falhas ou erros.</li>
+</ul>
+<p><strong>Logs e Auditoria:</strong></p>
+<ul>
+<li>Analise os logs para identificar mensagens de erro, exceções e padrões que possam indicar a origem do problema.</li>
+<li>Use o <strong>AWS CloudTrail</strong> para rastrear ações feitas na infraestrutura que possam ter causado falhas.</li>
+</ul>
+<p><span class="texto-verde"><strong>Correção de Falhas</strong></span></p>
+<p><strong>Diagnóstico:</strong></p>
+<ul>
+<li>Identifique exatamente onde a falha ocorreu (ex: no processo de ingestão, transformação, carregamento, etc.).</li>
+<li>Verifique dependências externas, como conexões com bancos de dados, permissões e quotas.</li>
+</ul>
+<p><strong>Resolução:</strong></p>
+<ul>
+<li>Se for um erro temporário (ex: timeout, falha de rede), pode ser suficiente reiniciar o job ou a função.</li>
+<li>Corrija erros de configuração ou código conforme identificado nos logs.</li>
+<li>Atualize permissões ou políticas de acesso se necessário.</li>
+</ul>
+<p><strong>Testes e Validação:</strong></p>
+<ul>
+<li>Execute testes localmente ou em ambiente de staging para garantir que o problema foi resolvido.</li>
+<li>Monitore a pipeline após a correção para garantir que a falha não se repita.</li>
+</ul>
+<p><span class="texto-verde"><strong>Boas Práticas</strong></span></p>
+<ul>
+<li>Implementar <strong>retry logic</strong> e tratamento de erros dentro da pipeline.</li>
+<li>Usar <strong>versionamento</strong> para código e configurações para facilitar rollback.</li>
+<li>Ter um plano de recuperação e comunicação claro para incidentes.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../00-fundamentos-de-dados/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Fundamentos de Dados">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Fundamentos de Dados
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-consultas-sql/" class="md-footer__link md-footer__link--next" aria-label="Next: Consultas SQL">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Consultas SQL
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Vinicius Naziozeno Santoro do Rio
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
